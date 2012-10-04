@@ -1,7 +1,9 @@
 function data = TestData(LocR, origin_time, r0, t_time, p_time, s_time, alpha, beta, rho, n)
-%ADD_TEST_GEOSENSOR Summary of this function goes here
-%   Detailed explanation goes here
-    % pulso con direccion aleatoria
+%ADD_TEST_GEOSENSOR Datos de prueba medidos en el punto r0 generados por una fuente con forma de
+% impulso delta de Dirac en el punto LocR y en el momento origin_time.
+
+
+    % direcci`on arbitraria del impulso de la fuente
     i = 1;
     j = 1;
     k = 1;
