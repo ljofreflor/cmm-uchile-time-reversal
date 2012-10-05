@@ -1,11 +1,13 @@
 Proyecto con la estimación de la fuente por medio del conjunto de set de datos
 entregados por codelco:
 
+contacto: ljofre2146@gmail.com
+
 #Instrucciones
 
 1. Bajar el proyecto mediante un archivo zip o crear un clone del proyecto
-2. En matlab agregar la carpeta del clone en la path
-3. Ejecutar el script en matlab
+2. En Matlab agregar la descargada o clonada en el Path del sistema
+3. Ejecutar los siguientes scripts de Matlab
 
 ##Obtensión de la forma de la fuente asumiendo un punto conocido
 
