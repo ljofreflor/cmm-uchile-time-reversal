@@ -10,7 +10,7 @@ entregados por codelco:
 ##Obtensión de la forma de la fuente asumiendo un punto conocido
 
  ```
-mu = ImportEvents();                 % Importar eventos
+mu = ImportEvents();                 % Importa todos los archivos a una lista de objetos events
 ev = 1;                              % Número del evento que se desea estimar la forma de la fuente
 [src, error] = source(mu, ev);       % forma de la fuente y error de estimación
 [rotateSrc , B] = ChangeOfBasis(src) % rotaci'on de la fuente sísmica 
@@ -21,4 +21,11 @@ En el cual veremos el campo de desplazamiento
 
  ##Pruebas de validez del código
  
+ 
  Este framework consta de una serie de pruebas que validan la integridad numérica de los resultados de las mediciones reales.
+ 
+ ### Prueba sobre la estimación numerica de la fuente por medio de mínimos cuadrados
+ 
+ ### Pruebas sobre la inversión de una señal sintética
+ 
+ 
