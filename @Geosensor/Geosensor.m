@@ -1,5 +1,5 @@
 classdef Geosensor
-    %SENSOR objeto que abstrae el concepto de sensor
+    %SENSOR objeto que abstrae el concepto de sensor f'isico que puede ser un veloc'imetro o un acelerometro
     
     properties
         resampleErrorOnNorm
