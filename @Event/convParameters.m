@@ -1,5 +1,8 @@
 function obj = convParameters(obj)
 
+% reestimaci'on de la locaci'on de la fuente y el tiempo de origen en funci'on de de los tiempos
+% de llegada de la onda p y la onda s estimadas en el set de datos entregadas por codelco.
+
 options = optimset('Display','off','LargeScale','on');
 
 iter = true;
