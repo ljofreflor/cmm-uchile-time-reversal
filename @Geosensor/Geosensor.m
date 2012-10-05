@@ -1,8 +1,5 @@
 classdef Geosensor
-    %SENSOR Summary of this class goes here
-    %Un sensor es un objeto que se encuentra en un espacio f�sico, en un
-    %experimento tiene una tabla de datos, tiene una frecuencia de
-    %muestreo, una densidad de la roca que mide la vibraci�n
+    %SENSOR objeto que abstrae el concepto de sensor
     
     properties
         resampleErrorOnNorm
@@ -41,7 +38,6 @@ classdef Geosensor
         validAll;        
     end
     
-    %Comportamientos del sistema
     methods
         %Constructor de la clase
         function obj = Geosensor(r0, t_time, hardware_sampling_rate, ...
@@ -60,19 +56,21 @@ classdef Geosensor
             obj.validSP = SP_valid;
             obj.sensor_id = sensor_id;
             
-            % valores por defecto
+            % por defecto un sensor es un velocìmetro 
             obj.IsSpeedometer = 1;
             obj.IsAccelerometer = 0;
+
+            % existe un conjunto menor de sensores que son acelerometros
             accel = [76 82 118 126 146 147];
-            % si el id del sensor es cero entonces
-            % lo que se esta ingresando es un sensor
-            % que contiene los desplazamientos con respecto
-            % la posición de equilibrio
+
             id = obj.sensor_id;
             if id == 0
+                % caso de prueba, nunca ocurrirà en la realidad que se mida campo de
+                % desplazamiento, pero para hacer pruebas de los algoritmos es necesario
                 obj.IsSpeedometer = 0;
                 obj.IsAccelerometer = 0;
             elseif any(id == accel)
+                % cuando se identifica un aceler'ometro
                 obj.IsSpeedometer = 0;
                 obj.IsAccelerometer = 1;
             end
