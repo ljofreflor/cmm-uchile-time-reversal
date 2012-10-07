@@ -1,4 +1,4 @@
-function src = source(mu, ev,testFlag, desplaFlag, cutFlag, Nsync, nSrc, dt)
+function [src, cutsrc, filtsrc, cutfiltsrc, error] = source(event, testFlag, cutFlag, Nsync, nSrc, dt)
 
 % testFlag que determina si es un test o un ejemplo real
 % desplaFlag que determina si es una reconstruccion mediante el campo de
@@ -8,17 +8,15 @@ function src = source(mu, ev,testFlag, desplaFlag, cutFlag, Nsync, nSrc, dt)
 % ev numero del evento con el cual se quiere reconstruir
 % en total, que son los que est'an cargados en memoria.
 
-if cutFlag == 0;
-    event = mu(ev);
-else
-    mu = windowerase(mu,ev);
-    event = mu(ev);
-end
-
 % paramentros f`isicos del evento en especial
 alpha = event.alpha;
 beta  = event.beta;
 rho   = event.rho;
+
+if cutFlag == 1
+    % cortar las colas
+    event = windowErase(event);
+end
 
 % para la recosntrucci`o de la fuente se requiere un dt que es el tiempo
 % entre medicion y la cantidad de mediciones de la reconstrucci`on, con
@@ -36,7 +34,7 @@ N = Nsync;
 timeSync = linspace(event.origin_time,event.last_time,N);
 
 % cosntrucci`on del sistema matricial
-for k = 1:event.count    
+for k = 1:event.count
     % sensor a iterar
     sens = event.gss(k);
     hsr = sens.hardware_sampling_rate;
@@ -56,10 +54,10 @@ for k = 1:event.count
     R = sens.r0 - mu(ev).LocR;
     timeDomain = timeSync - event.origin_time;
     [G11,G12,G13,G22,G23,G33] = Event.scalarGreenKernel(R(1),R(2),R(3),timeDomain,alpha,beta,rho);
-
+    
     % no todos los sensores empiezan el el mismo momento, no se entonces
     % por que los hacer partir todos en cero
-    F11 = cumsum(G11); 
+    F11 = cumsum(G11);
     F12 = cumsum(G12);
     F13 = cumsum(G13);
     F22 = cumsum(G22);
@@ -119,52 +117,28 @@ end
 magnitude=norm(A);
 A=A/magnitude;
 U=U/magnitude;
+
+% inversa generalizada de Moore-Penrose para encontrar la fuente
 alphas = (U*A')*pinv((A*A'));
 
-clear('A');clear('B');clear('U');
 
 % luego de tener la fuente se puede comparar los sensores estimados contra
-% los reales y ver el error de estimacion
+% los reales y ver el error de estimacion.
+
+% se valida la forma de la fuente por medio del campo de desplazamiento con
+% el campo de velocidades, esto quiere decir que ambas deben ser la misma.
 if desplaFlag == 1
-    
-    h = figure;
-    
-    subplot(1,3,1);
-    plot(srcTime, alphas(1:3:end));
-    axis([min(srcTime) max(srcTime) min(alphas) max(alphas)]);
-    
-    subplot(1,3,2);
-    plot(srcTime, alphas(2:3:end));
-    axis([min(srcTime) max(srcTime) min(alphas) max(alphas)]);
-    
-    subplot(1,3,3);
-    plot(srcTime, alphas(3:3:end));
-    axis([min(srcTime) max(srcTime) min(alphas) max(alphas)]);
-    
-    
-    % se almacena la las mediciones de la fuente con la ventana de tiempo
-    % respectiva
     source = zeros([size(alphas,2)/3 4]);
     source(:,1) = srcTime';
     source(:,2) = alphas(1:3:end)';
     source(:,3) = alphas(2:3:end)';
     source(:,4) = alphas(3:3:end)';
-    
-    % guardar los datos obtenidos en archivos para poder ser usados en
-    % informes.
-    fileName =  strcat(['test' num2str(testFlag) 'cut' num2str(cutFlag) ...
-        'desplaFlag' num2str(desplaFlag) 'nsrc' num2str(nSrc) 'nsync' num2str(Nsync) 'dt' num2str(dt) ]);
-    cd sourceEstimation/;
-        save(strcat([fileName '.mat']),'source');
-        print(h,'-dpng',strcat([fileName '.png'] ));
-    cd ..;    
-    close(h);
 else
-    subplot(1,3,1);
-    plot(srcTime, cumsum(alphas(1:3:end)));
-    subplot(1,3,2);
-    plot(srcTime, cumsum(alphas(2:3:end)));
-    subplot(1,3,3);
-    plot(srcTime, cumsum(alphas(3:3:end)));
+    source = zeros([size(alphas,2)/3 4]);
+    source(:,1) = srcTime';
+    source(:,2) = cumsum(alphas(1:3:end))';
+    source(:,3) = cumsum(alphas(2:3:end))';
+    source(:,4) = cumsum(alphas(3:3:end))';
 end
+
 end
