@@ -6,13 +6,9 @@ contacto: ljofre2146@gmail.com
 #Instrucciones
 
 1. Bajar el proyecto mediante un archivo zip o crear un clone del proyecto
-<<<<<<< HEAD
-2. Agregar la carpeta descargada en el *path* de Matlab
+2. Agregar la carpeta descargada en el **Path** de Matlab
 3. Ejecutar los siguientes scripts en matlab
-=======
-2. En Matlab agregar la descargada o clonada en el Path del sistema
-3. Ejecutar los siguientes scripts de Matlab
->>>>>>> 3db102c63822926400adb697f62ccdeb657de354
+
 
 ##Obtensión de la forma de la fuente asumiendo un punto conocido
 
