@@ -6,28 +6,40 @@ contacto: ljofre2146@gmail.com
 #Instrucciones
 
 1. Bajar el proyecto mediante un archivo zip o crear un clone del proyecto
+<<<<<<< HEAD
+2. Agregar la carpeta descargada en el *path* de Matlab
+3. Ejecutar los siguientes scripts en matlab
+=======
 2. En Matlab agregar la descargada o clonada en el Path del sistema
 3. Ejecutar los siguientes scripts de Matlab
+>>>>>>> 3db102c63822926400adb697f62ccdeb657de354
 
 ##Obtensión de la forma de la fuente asumiendo un punto conocido
 
  ```
-mu = ImportEvents();                 % Importa todos los archivos a una lista de objetos events
-ev = 1;                              % Número del evento que se desea estimar la forma de la fuente
-[src, error] = source(mu, ev);       % forma de la fuente y error de estimación
-[rotateSrc , B] = ChangeOfBasis(src) % rotaci'on de la fuente sísmica 
-                                      % para encontrar el plano de ruptura y la matriz de cambio de base B
+Events = importEvents();             % Importa todos los archivos a una lista de objetos events
+n = 1;                               % Número del evento que se desea estimar la forma de la fuente
+event = Events(n);                   % Evento en estudio, puede ser en 1:event.count
+                                     % forma de la fuente y error de estimación
+[src, cutsrc, filtsrc, cutfiltsrc, error] = source(event);  
+```
+Para obtener el vector perpendicular al plano de ruptura se puede hacer el cambio de base
+mediante una matriz ortogonal que produzca máximo desplazamiento en un eje
+
+```        
+[rotateSrc , B] = ChangeOfBasis(src) % rotaci'on del campo de desplazamiento de la fuente
+                                     % para encontrar el plano de ruptura y la matriz de cambio de base B
 plot(rotateSrc);
  ```
 En el cual veremos el campo de desplazamiento
 
- ##Pruebas de validez del código
+##Pruebas de validez del código 
  
- 
- Este framework consta de una serie de pruebas que validan la integridad numérica de los resultados de las mediciones reales.
- 
- ### Prueba sobre la estimación numerica de la fuente por medio de mínimos cuadrados
- 
- ### Pruebas sobre la inversión de una señal sintética
+Este framework consta de una serie de pruebas que validan la integridad numérica de los resultados de las mediciones reales.
+### Prueba sobre la estimación numerica de la fuente por medio de mínimos cuadrados
+### Pruebas sobre la inversión de una señal sintética
+
+
+###
  
  
