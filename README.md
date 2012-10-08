@@ -4,17 +4,20 @@ entregados por codelco:
 #Instrucciones
 
 1. Bajar el proyecto mediante un archivo zip o crear un clone del proyecto
-2. Agregar la carpeta descargada en el *path* de Matlab
-3. Ejecutar los siguientes scripts en matlab
+2. En Matlab agregar la descargada o clonada en el **Path** del sistema
+3. Ejecutar los siguientes scripts de Matlab
 
 ##Obtensión de la forma de la fuente asumiendo un punto conocido
 
  ```
-Events = ImportEvents();             % Importa todos los archivos a una lista de objetos events
-n = 1;                               % Número del evento que se desea estimar la forma de la fuente
+Events = importEvents();             % Importa todos los archivos a una lista de objetos events
+n = 2;                               % Número del evento que se desea estimar la forma de la fuente
 event = Events(n);                   % Evento en estudio, puede ser en 1:event.count
                                      % forma de la fuente y error de estimación
-[src, cutsrc, filtsrc, cutfiltsrc, error] = source(ev);  
+nSync = 750;
+nSrc = 250;
+dt = 0.0000025;
+[src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSync, nSrc, dt); 
 ```
 Para obtener el vector perpendicular al plano de ruptura se puede hacer el cambio de base
 mediante una matriz ortogonal que produzca máximo desplazamiento en un eje
@@ -33,6 +36,8 @@ Este framework consta de una serie de pruebas que validan la integridad numéric
 ### Pruebas sobre la inversión de una señal sintética
 
 
-###
+### Inversión de la señal
+
+### Busqueda del punto de ruptura
  
  

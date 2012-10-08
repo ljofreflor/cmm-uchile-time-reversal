@@ -95,7 +95,7 @@ for ii = 1:Nevents
         % mantenible el c`odigo
         
         % se agregar el geosensor conjunto de geosensores
-        events(ii).addGeosensor(gs, sensorData);
+        events(ii) = events(ii).addGeosensor(gs, sensorData);
     end
 end
 end

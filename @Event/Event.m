@@ -1,4 +1,4 @@
-classdef Event < handle
+classdef Event % < handle
     %MODEL Clase que abstrae un evento s`ismico. Esta clase contiene un conjunto de par`ametros
     % correspondiente al evento en si, como el tiempo estimado por codelco y la posici'on en los
     % set de datos dados en los documentos
