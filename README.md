@@ -38,10 +38,4 @@ Este framework consta de una serie de pruebas que validan la integridad numéric
 
 ### Inversión de la señal
 
-<<<<<<< HEAD
 ### Busqueda del punto de ruptura
- 
- 
-=======
-### Busqueda del punto de ruptura
->>>>>>> 4a93fb221ba8fb9c7293abb27d05cc639f0e3152
