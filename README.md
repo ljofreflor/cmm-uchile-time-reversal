@@ -1,8 +1,6 @@
 Proyecto con la estimación de la fuente por medio del conjunto de set de datos
 entregados por codelco:
 
-contacto: ljofre2146@gmail.com
-
 #Instrucciones
 
 1. Bajar el proyecto mediante un archivo zip o crear un clone del proyecto
