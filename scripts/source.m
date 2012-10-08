@@ -5,11 +5,13 @@ alpha = event.alpha;
 beta  = event.beta;
 rho   = event.rho;
 
+LocR = event.LocR;
+t0 = event.origin_time;
 % para la recosntrucci`o de la fuente se requiere un dt que es el tiempo
 % entre medicion y la cantidad de mediciones de la reconstrucci`on, con
 % ello se puede recosntruir la fuente en una ventana srcTime
 
-srcTime = event.origin_time + (0:(nSrc-1))*dt;
+srcTime = t0 + (0:(nSrc-1))*dt;
 
 % matrices en donde se construye el sistema lineal
 U = [];
@@ -18,7 +20,7 @@ A = [];
 % Tamanio arbitrario de sincronizacion de los datos, es necesario
 % encontrar un criterio que diga cual es el taman~io de sincronizaci'on
 % 'optimo
-timeSync = linspace(event.origin_time, event.last_time, nSync);
+timeSync = linspace(t0, event.last_time, nSync);
 
 % cosntrucci`on del sistema matricial para en sensor sin cortar las colas
 % entre el tiempo de llegada de la onda s y p
@@ -35,8 +37,8 @@ for k = 1:event.count
     despla = interp1( timeSens, despla', timeSync )';  % desplazamiento sincronizado
     despla(isnan(despla)) = 0;                         % rellenar con ceros
     
-    R = sens.r0 - event.LocR;
-    timeDomain = timeSync - event.origin_time;
+    R = sens.r0 - LocR;
+    timeDomain = timeSync - t0;
     [G11,G12,G13,G22,G23,G33] = Event.scalarGreenKernel(R(1),R(2),R(3),timeDomain,alpha,beta,rho);
     
     % no todos los sensores empiezan el el mismo momento, no se entonces
@@ -132,7 +134,7 @@ for k = 1:cutEvent.count
     despla = interp1( timeSens, despla', timeSync )';  % desplazamiento sincronizado
     despla(isnan(despla)) = 0;                         % rellenar con ceros
     
-    R = sens.r0 - event.LocR;
+    R = sens.r0 - cutEvent.LocR;
     timeDomain = timeSync - cutEvent.origin_time;
     [G11,G12,G13,G22,G23,G33] = Event.scalarGreenKernel(R(1),R(2),R(3),timeDomain,alpha,beta,rho);
     
@@ -220,6 +222,8 @@ cutsrc(:,4) = alphas(3:3:end)';
 filtsrc = filterLowPassSersor(src);
 filtcutsrc = filterLowPassSersor(cutsrc);
 
+
+% error del modelo
 error = 0;
 
 end
