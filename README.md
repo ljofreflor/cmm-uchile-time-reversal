@@ -48,9 +48,11 @@ gss = event.gss(m);
 ```
 
 ## Inversión de la señal
+Para obter la señal invertida en el dominio que contiene a todos los sensores
+con una resolución arbitraria ( definir resolución optima ).
 
 ```
-[X, Y, Z] = 
+[X, Y, Z] = sensor.reverse_signal();
 ```
 
 ##Pruebas de validez del código 

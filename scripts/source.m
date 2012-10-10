@@ -240,5 +240,4 @@ filtcutsrc = filterLowPassSersor(cutsrc);
 
 % error del modelo
 error = 0;
-
 end
