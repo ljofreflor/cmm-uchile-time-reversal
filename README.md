@@ -7,7 +7,7 @@ entregados por codelco:
 2. En Matlab agregar la descargada o clonada en el **Path** del sistema
 3. Ejecutar los siguientes scripts de Matlab
 
-##Obtensión de la forma de la fuente asumiendo un punto conocido
+##Obtensión de la forma de la fuente asumiendo un ubicación conocido
 
  ```
 Events = importEvents();             % Importa todos los archivos a una lista de objetos events
@@ -17,7 +17,7 @@ event = Events(n);                   % Evento en estudio, puede ser en 1:event.c
 nSync = 750;
 nSrc = 250;
 dt = 0.0000025;
-[src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSync, nSrc, dt); 
+[src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt); 
 ```
 Para obtener el vector perpendicular al plano de ruptura se puede hacer el cambio de base
 mediante una matriz ortogonal que produzca máximo desplazamiento en un eje

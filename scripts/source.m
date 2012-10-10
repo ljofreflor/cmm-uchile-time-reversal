@@ -1,4 +1,4 @@
-function [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSync, nSrc, dt)
+function [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt)
 
 % paramentros f`isicos del evento en especial
 alpha = event.alpha;
@@ -17,19 +17,15 @@ srcTime = t0 + (0:(nSrc-1))*dt;
 U = [];
 A = [];
 
-% Tamanio arbitrario de sincronizacion de los datos, es necesario
-% encontrar un criterio que diga cual es el taman~io de sincronizaci'on
-% 'optimo
-timeSync = linspace(t0, event.last_time, nSync);
-
 % cosntrucci`on del sistema matricial para en sensor sin cortar las colas
 % entre el tiempo de llegada de la onda s y p
 for k = 1:event.count
     % sensor a iterar
     sens = event.gss(k);
     hsr = sens.hardware_sampling_rate;
+    
+    % la relacion dt*hsr > 1
     index = ceil(dt*hsr);
-    timeSens = sens.timevector;
     
     % transformar el sensor a campo de desplazamiento
     if sens.IsSpeedometer
@@ -40,13 +36,8 @@ for k = 1:event.count
         despla = sens.data';
     end
     
-    
-    % tiempo de sincronización
-    despla = interp1( timeSens, despla', timeSync )';  % desplazamiento sincronizado
-    despla(isnan(despla)) = 0;                         % rellenar con ceros
-    
     R = sens.r0 - LocR;
-    timeDomain = timeSync - t0;
+    timeDomain = sens.timevector - t0;
     [G11,G12,G13,G22,G23,G33] = Event.scalarGreenKernel(R(1),R(2),R(3),timeDomain,alpha,beta,rho);
     
     % no todos los sensores empiezan el el mismo momento, no se entonces
@@ -132,7 +123,6 @@ for k = 1:cutEvent.count
     sens = cutEvent.gss(k);
     hsr = sens.hardware_sampling_rate;
     index = ceil(dt*hsr);
-    timeSens = sens.timevector;
     
     
     % transformar el sensor a campo de desplazamiento
@@ -144,13 +134,9 @@ for k = 1:cutEvent.count
         despla = sens.data';
     end
     
-    %despla = testDataFunction(mu(ev),k,time2-t0)';
-    % tiempo de sincronización
-    despla = interp1( timeSens, despla', timeSync )';  % desplazamiento sincronizado
-    despla(isnan(despla)) = 0;                         % rellenar con ceros
-    
+ 
     R = sens.r0 - cutEvent.LocR;
-    timeDomain = timeSync - cutEvent.origin_time;
+    timeDomain = sens.timevector - cutEvent.origin_time;
     [G11,G12,G13,G22,G23,G33] = Event.scalarGreenKernel(R(1),R(2),R(3),timeDomain,alpha,beta,rho);
     
     % no todos los sensores empiezan el el mismo momento, no se entonces
@@ -232,11 +218,9 @@ cutsrc(:,2) = alphas(1:3:end)';
 cutsrc(:,3) = alphas(2:3:end)';
 cutsrc(:,4) = alphas(3:3:end)';
 
-
 % filtrar las fuentes en sus dos versiones
 filtsrc = filterLowPassSersor(src);
 filtcutsrc = filterLowPassSersor(cutsrc);
-
 
 % error del modelo
 error = 0;
