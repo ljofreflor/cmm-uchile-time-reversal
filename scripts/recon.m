@@ -29,7 +29,13 @@ recsrc(2,:) = ifft(fft(G21).*fft(src2(1,:)) + fft(G22).*fft(src2(2,:)) + fft(G23
 recsrc(3,:) = ifft(fft(G31).*fft(src2(1,:)) + fft(G32).*fft(src2(2,:)) + fft(G33).*fft(src2(3,:)));
 
 % reconstrucion en la ventana de la fuente
-gssRec = interp1( time', recsrc', sensortime');
-error = norm(gssRec - gss, 1)/norm(gss, 1);
+gs.hat = interp1( time', recsrc', sensortime');
+gs.hat(isnan(gs.hat)) = 0;
+gs.real = detrend(cumsum(gss.data));
+error = norm(gs.hat(:,1) - gs.real(:,1), 1)/norm(gs.real(:,1), 1) + ...
+    norm(gs.hat(:,2) - gs.real(:,2), 1)/norm(gs.real(:,2), 1) + ...
+    norm(gs.hat(:,3) - gs.real(:,3), 1)/norm(gs.real(:,3), 1);
+
+gssRec = gs.hat;
 
 end

@@ -1,8 +1,8 @@
-function data = datosarticiales(sens,t0,r0,alpha,beta,rho, sincn)
+function data = datosArticiales(sens,t0,r0,alpha,beta,rho, sincn)
 %datos artificiales creados generados por una fuente escalonada
 
 hsr = sens.hardware_sampling_rate;
-time = sens.T(1) + (0:(size(sens.data,1)-1))/hsr;
+time = sens.timevector(1) + (0:(size(sens.data,1)-1))/hsr;
 sinctime = linspace(t0,time(end),sincn);
 
 % fuente escalonada
@@ -32,5 +32,7 @@ data(:,2) = ifft(fft(G12').*fft(src(:,1))) + ...
 data(:,3) = ifft(fft(G13').*fft(src(:,1))) + ...
     ifft(fft(G23').*fft(src(:,2))) + ...
     ifft(fft(G33').*fft(src(:,3)));
+
+data = data';
 
 end

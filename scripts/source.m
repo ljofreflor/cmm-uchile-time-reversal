@@ -31,7 +31,15 @@ for k = 1:event.count
     index = ceil(dt*hsr);
     timeSens = sens.timevector;
     
-    despla = detrend(cumsum(sens.data))';
+    % transformar el sensor a campo de desplazamiento
+    if sens.IsSpeedometer
+        despla = detrend(cumsum(sens.data))';
+    elseif sens.IsAccelerometer
+        despla = detrend(cumsum(detrend(cumsum(sens.data))))';
+    else
+        despla = sens.data';
+    end
+    
     
     % tiempo de sincronización
     despla = interp1( timeSens, despla', timeSync )';  % desplazamiento sincronizado
@@ -127,7 +135,14 @@ for k = 1:cutEvent.count
     timeSens = sens.timevector;
     
     
-    despla = detrend(cumsum(sens.data))';
+    % transformar el sensor a campo de desplazamiento
+    if sens.IsSpeedometer
+        despla = detrend(cumsum(sens.data))';
+    elseif sens.IsAccelerometer
+        despla = detrend(cumsum(detrend(cumsum(sens.data))))';
+    else
+        despla = sens.data';
+    end
     
     %despla = testDataFunction(mu(ev),k,time2-t0)';
     % tiempo de sincronización
