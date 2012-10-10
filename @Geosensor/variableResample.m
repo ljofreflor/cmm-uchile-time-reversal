@@ -31,7 +31,7 @@ tp = obj.TriggerPosition;
 hsr = obj.hardware_sampling_rate;
 
 % vector de tiempo
-obj.timevector = obj.t_time - ((0:(obj.L-1))-tp)/hsr;
+obj.timevector = obj.t_time + ((0:(obj.L-1))-tp)/hsr;
 
 % norma del vector de desplazamiento medici`on a medici'on
 normDespla     = sqrt(obj.r_x.^2 + obj.r_y.^2 + obj.r_z.^2);
