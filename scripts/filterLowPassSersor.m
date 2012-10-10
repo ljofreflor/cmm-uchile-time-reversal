@@ -7,12 +7,12 @@ aa = source(:,2:4)';
 
 for j = 1:10
     cutfrec = 13 + j; %esto hay que hacerlo mejor
-    filter = ones(1,nn);
-    filter(1:cutfrec) = (linspace(1,cutfrec-1,cutfrec)-1)/cutfrec;
+    filter = ones(1, nn);
+    filter(1:cutfrec) = (linspace(1,cutfrec-1,cutfrec) - 1)/cutfrec;
     for i=1:3
         aux = fft(aa(i,:));
         aux(1:cutfrec)=0;
-        aux(end:-1:end-cutfrec+1)=0;
+        aux(end:-1:end-cutfrec+1) = 0;
         auxx = real(ifft(aux));
         a(i,:) = a(i,:)+auxx(1:n);
     end

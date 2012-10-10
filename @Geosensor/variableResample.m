@@ -30,7 +30,7 @@ obj.L = size(obj.data,1); % n de mediciones
 tp = obj.TriggerPosition; 
 hsr = obj.hardware_sampling_rate;
 
-% vector de tiempo
+% vector de tiempo, tiene que retrodecer el buffer dado por "tp"
 obj.timevector = obj.t_time + ((0:(obj.L-1))-tp)/hsr;
 
 % norma del vector de desplazamiento medici`on a medici'on
