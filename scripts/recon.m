@@ -1,4 +1,4 @@
-function [gssRec, error] = recon(event, gss, src)
+function [gsRec, gsReal, error] = recon(event, gss, src)
 % dado que se tiene una fuente estimada es posible obtener
 
 srctime = src(:,1);
@@ -36,6 +36,7 @@ error = norm(gs.hat(:,1) - gs.real(:,1), 1)/norm(gs.real(:,1), 1) + ...
     norm(gs.hat(:,2) - gs.real(:,2), 1)/norm(gs.real(:,2), 1) + ...
     norm(gs.hat(:,3) - gs.real(:,3), 1)/norm(gs.real(:,3), 1);
 
-gssRec = gs.hat;
+gsRec = gs.hat;
+gsReal = gs.real;
 
 end

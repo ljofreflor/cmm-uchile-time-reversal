@@ -1,4 +1,4 @@
-function data = datosArticiales(sens,t0,r0,alpha,beta,rho, sincn)
+function [data, sinctime] = datosArticiales(sens,t0,r0,alpha,beta,rho, sincn)
 %datos artificiales creados generados por una fuente escalonada
 
 hsr = sens.hardware_sampling_rate;
@@ -33,6 +33,6 @@ data(:,3) = ifft(fft(G13').*fft(src(:,1))) + ...
     ifft(fft(G23').*fft(src(:,2))) + ...
     ifft(fft(G33').*fft(src(:,3)));
 
-data = data';
+%data = data;
 
 end
