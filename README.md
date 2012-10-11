@@ -59,6 +59,7 @@ con una resolución arbitraria ( definir resolución optima ).
 ```
 [X, Y, Z] = sensor.reverse_signal();
 ```
+***
 
 ##Pruebas de validez del código 
  
