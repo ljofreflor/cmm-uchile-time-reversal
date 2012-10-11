@@ -31,7 +31,7 @@ Y una rotación de los ejes para el campo desplazamiento filtrado
 plot(rotatefiltsrc);
  ```
 
-![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.source1.png)
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.source1.png?raw=true)
 
 En el cual veremos el campo de desplazamiento
 
