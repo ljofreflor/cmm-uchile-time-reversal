@@ -74,6 +74,8 @@ dt = 2/4800;
 [src, cutsrc, filtsrc, filtcutsrc, error] = source(art, nSrc, dt);
 
 ```
+
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/test-plot.png?raw=true)
 ### Pruebas sobre la inversión de una señal sintética
 
 
