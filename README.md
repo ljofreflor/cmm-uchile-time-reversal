@@ -31,6 +31,8 @@ Y una rotación de los ejes para el campo desplazamiento filtrado
 plot(rotatefiltsrc);
  ```
 
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.source1.png)
+
 En el cual veremos el campo de desplazamiento
 
 ## Reconstrucción de un sensor para una fuente con el error de estimación
