@@ -11,11 +11,11 @@ entregados por codelco:
 
  ```
 Events = importEvents();             % Importa todos los archivos a una lista de objetos events
-n = 4;                               % Número del evento que se desea estimar la forma de la fuente
+n = 1;                               % Número del evento que se desea estimar la forma de la fuente
 event = Events(n);                   % Evento en estudio, puede ser en 1:event.count
                                      % forma de la fuente y error de estimación
-nSrc = 100;
-dt = .001;
+nSrc = 200;
+dt = .0005;
 [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt); 
 ```
 Para obtener el vector perpendicular al plano de ruptura se puede hacer el cambio de base
