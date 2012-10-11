@@ -11,7 +11,7 @@ entregados por codelco:
 
  ```
 Events = importEvents();             % Importa todos los archivos a una lista de objetos events
-n = 1;                               % Número del evento que se desea estimar la forma de la fuente
+n = 5;                               % Número del evento que se desea estimar la forma de la fuente
 event = Events(n);                   % Evento en estudio, puede ser en 1:event.count
                                      % forma de la fuente y error de estimación
 nSrc = 200;
@@ -22,10 +22,15 @@ Para obtener el vector perpendicular al plano de ruptura se puede hacer el cambi
 mediante una matriz ortogonal que produzca máximo desplazamiento en un eje
 
 ```        
-[rotateSrc , B] = ChangeOfBasis(src) % rotación del campo de desplazamiento de la fuente
-                                     % para encontrar el plano de ruptura y la matriz de cambio de base B
-plot(rotateSrc);
+[rotatesrc,N1,N2,N3] = rotate(src)
+plot(rotatesrc);
  ```
+Y una rotación de los ejes para el campo desplazamiento filtrado
+```        
+[rotatefiltsrc,N1,N2,N3] = rotate(filtsrc)
+plot(rotatefiltsrc);
+ ```
+
 En el cual veremos el campo de desplazamiento
 
 ## Reconstrucción de un sensor para una fuente con el error de estimación

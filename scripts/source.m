@@ -219,9 +219,13 @@ cutsrc(:,3) = alphas(2:3:end)';
 cutsrc(:,4) = alphas(3:3:end)';
 
 % filtrar las fuentes en sus dos versiones
-filtsrc = filterLowPassSersor(src);
-filtcutsrc = filterLowPassSersor(cutsrc);
+src(:,2:4) = detrend(src(:,2:4));
+cutsrc(:,2:4) = detrend(cutsrc(:,2:4));
 
+
+filtsrc = detrend(filterLowPassSersor(src));
+
+filtcutsrc = detrend(filterLowPassSersor(cutsrc));
 % error del modelo
 error = 0;
 end
