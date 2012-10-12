@@ -31,6 +31,12 @@ Y una rotación de los ejes para el campo desplazamiento filtrado
 plot(rotatefiltsrc);
  ```
 
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.source1.png?raw=true)
+
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.source10.png?raw=true)
+
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.source11.png?raw=true)
+
 En el cual veremos el campo de desplazamiento
 
 ## Reconstrucción de un sensor para una fuente con el error de estimación
@@ -57,6 +63,7 @@ con una resolución arbitraria ( definir resolución optima ).
 ```
 [X, Y, Z] = sensor.reverse_signal();
 ```
+***
 
 ##Pruebas de validez del código 
  
@@ -72,6 +79,8 @@ dt = 2/4800;
 [src, cutsrc, filtsrc, filtcutsrc, error] = source(art, nSrc, dt);
 
 ```
+
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/test-plot.png?raw=true)
 ### Pruebas sobre la inversión de una señal sintética
 
 
