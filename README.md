@@ -11,7 +11,7 @@ entregados por codelco:
 
  ```
 Events = importEvents();             % Importa todos los archivos a una lista de objetos events
-n = 11;                               % Número del evento que se desea estimar la forma de la fuente
+n = 1;                              % Número del evento que se desea estimar la forma de la fuente
 event = Events(n);                   % Evento en estudio, puede ser en 1:event.count
                                      % forma de la fuente y error de estimación
 nSrc = 200;

@@ -1,4 +1,4 @@
-classdef Event % < handle
+classdef Event 
     %MODEL Clase que abstrae un evento s`ismico. Esta clase contiene un conjunto de par`ametros
     % correspondiente al evento en si, como el tiempo estimado por codelco y la posici'on en los
     % set de datos dados en los documentos
@@ -104,49 +104,7 @@ classdef Event % < handle
         
         % setear valores, estas son reglas de integridad que harán que el
         % algoritmo sea mas segundo y mas manipulable.
-        function AddGss(obj, gs_list)
-            gs = gs_list(end);
-            % tomamos el ultimo elemento
-            if( isempty(gs))
-                disp('no puede asignar un geosensor vacio');
-            else
-                %verificamos que cada uno de sus atributos esté asignado,
-                %hay que implementar los mensajes.
-                obj.p_times = [obj.p_times gs.p_time];
-                obj.s_times = [obj.s_times gs.s_time];
-                obj.sp_valid = [obj.sp_valid gs.diferenciaPSvalida];
-                obj.r0 = [obj.r0; gs.r0];
-                % distancia a la fuente desde el sensor
-                gs.dis_to_src  = norm(gs.r0-obj.LocR);
-                gs.dis_to_src_old  = norm(gs.r0-obj.LocR);
-                
-                % agregar la distancia a la lista
-                obj.dis_to_src = [obj.dis_to_src gs.dis_to_src];
-                obj.dis_to_src_old = [obj.dis_to_src_old gs.dis_to_src_old];
-                
-                % agregar a la lista los tamanios de resampleo
-                obj.n_rsmpl    = [obj.n_rsmpl length(gs.timevector)];
-                obj.max_norm   = [obj.max_norm max([max(abs(gs.r_x)) max(abs(gs.r_y)) max(abs(gs.r_z))])];
-                obj.alpha_ind  = [obj.alpha_ind gs.dis_to_src/(gs.p_time - obj.origin_time) ];
-                obj.beta_ind   = [obj.beta_ind  gs.dis_to_src/(gs.s_time - obj.origin_time) ];
-                obj.gss        = [obj.gss gs];
-                obj.validP_list = [obj.validP_list gs.validP];
-                obj.validS_list = [obj.validS_list gs.validS];
-                obj.validSP_list = [obj.validSP_list gs.validSP];
-                
-                % setear parametros estadisticos
-                obj.mean_alpha = mean(obj.alpha_ind);
-                obj.std_alpha = std(obj.alpha_ind);
-                
-                obj.mean_beta = mean(obj.beta_ind);
-                obj.std_beta = std(obj.beta_ind);
-                
-                obj.count = obj.count + 1;
-                
-                
-            end
-        end
-        
+      
         e         = error_resample(obj, sensor, n)
         obj       = addGeosensor(obj, gs, vel)
         obj       = update(obj, error, p ,tail_per,update_type,is_cut)
@@ -179,62 +137,6 @@ classdef Event % < handle
         obj = set_domain_unit(obj , nx , ny , nz , nt)
         [ X Y Z X_domain Y_domain Z_domain T_domain] = test_with_real_locations_adjusted(obj)
         setNewDomain(obj, x1,x2,nx,y1,y2,ny,z1,z2,nz,t1,t2,nt)
-        
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        function maxDataSize = get.maxDataSize(obj)
-            maxDataSize = length(obj.gss(1).data(:,1));
-            for ii = 1:obj.count
-                temp = length(obj.gss(ii).data(:,1));
-                if temp > maxDataSize
-                    maxDataSize = temp;
-                end
-            end
-            obj.maxDataSize = maxDataSize;
-        end
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        function physicParameters = get.physicParameters(obj)
-            physicParameters = [obj.alpha obj.beta obj.rho];
-        end
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        function sourceParam = get.sourceParameters(obj)
-            sourceParam = [obj.LocR obj.origin_time];
-        end
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        function time = get.fftEventTimeWindowsBoundary(obj)
-            time = [obj.origin_time obj.last_time];
-        end
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        function data = fftDataField(obj, index)
-            dat = obj.gss(index).data;
-            mn = mean(dat);
-            dat(:,1) = dat(:,1) - mn(1);
-            dat(:,2) = dat(:,2) - mn(2);
-            dat(:,3) = dat(:,3) - mn(3);
-            
-            % integrar las señales
-            dat = cumsum(dat);
-            % centrarla
-            mn = mean(dat);
-            dat(:,1) = dat(:,1) - mn(1);
-            dat(:,2) = dat(:,2) - mn(2);
-            dat(:,3) = dat(:,3) - mn(3);
-            % cantidad de datos necesarios para la fft
-            L = 2^nextpow2(obj.maxDataSize);
-            % ventana de tiempo real con frecuencia de muestreo real
-            gssTime = obj.gss(index).RealWindowsTime;
-            eventTime = linspace(obj.origin_time, obj.last_time,L);
-            dat = interp1(gssTime', dat, eventTime');
-            
-            
-            dat(isnan(dat))=0;
-            data = dat;
-        end
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        function dt = get.Syncdt(obj)
-            L = 2^nextpow2(obj.maxDataSize);
-            eventTime = linspace(obj.origin_time, obj.last_time,L);
-            dt = eventTime(2) - eventTime(1);
-        end
         obj = convParameters(obj);
     end
     

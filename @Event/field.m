@@ -27,7 +27,6 @@ beta = obj.beta;
 rho = obj.rho;
 
 for ii = (obj.gss(id).resampleSize - 1):-1:1
-    ii
     %s  = obj.tau-t(ii); 
     s  = t(ii); 
     ds = obj.gss(id).period(ii);
@@ -40,7 +39,7 @@ for ii = (obj.gss(id).resampleSize - 1):-1:1
     G23 = G23.*( (t(ii) + T - obj.last_time) >= 0 );
     G33 = G33.*( (t(ii) + T - obj.last_time) >= 0 );
 
-
+    
     SUM_X = SUM_X + (G11 * r_x(ii) + G12 * r_y(ii) + G13 * r_z(ii))*ds;
     SUM_Y = SUM_Y + (G12 * r_x(ii) + G22 * r_y(ii) + G23 * r_z(ii))*ds;
     SUM_Z = SUM_Z + (G13 * r_x(ii) + G23 * r_y(ii) + G33 * r_z(ii))*ds;

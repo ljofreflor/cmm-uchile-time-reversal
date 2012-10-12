@@ -16,8 +16,6 @@ rotatesrc(:,2) = data(:,1)*v(1,2) + data(:,2)*v(2,2) + data(:,3)*v(3,2);
 rotatesrc(:,3) = data(:,1)*v(1,3) + data(:,2)*v(2,3) + data(:,3)*v(3,3);
 
 
-% M = sum(data(:).^2);
-
 n1 = norm(rotatesrc(:,1),2);
 n2 = norm(rotatesrc(:,2),2);
 n3 = norm(rotatesrc(:,3),2);
