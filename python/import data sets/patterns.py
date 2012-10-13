@@ -1,16 +1,9 @@
 '''
 Created on 03/06/2012
-@author: leonardo
+@author: Proyecto time reversal
 Expresiones regulares de la información que se necesita extraer en el documento de codelco
 '''
 import re
-
-'''ppick y spick que es el muestro en donde aparece el maximo de la onda
-s y p
-example:
-P_pick                = 1238
-S_pick                = 1500
-'''
 
 P_pick_rgx = re.compile(r'''
                         P_pick[ ]*=.*\n
