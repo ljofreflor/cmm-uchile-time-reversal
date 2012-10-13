@@ -1,19 +1,22 @@
 # se puede iterar por sobre los archivos de tal manera de que se generen automaticamete
 # los patrones y no tener que definirlos manualmente.
-import os                     # handle directories
+import os                     
 import shutil                 # remove and make folders
 import patterns               # regex
 import re
+
 # Ruta en la que se encuentran los archivos entregados por codelco, estos a su vez se
 # encuentran en una posición relativa a la posición de este archivo en la path
 pathFolder = r'/home/leonardo/Dropbox/Universidad de Chile/eventos en txt'
-'lista de archivos y directorios'
+
+# lista de archivos y directorios
 files = os.listdir(pathFolder)
-# Eliminar todos los que sean directorios y conservar los archivos de esa manera 
-#cada vez que se ingresen archivos nuevos se regeneren todos los archivos.
+
+# eliminar todos los directorios y conservar los archivos
 for i in files:
     if os.path.isdir(pathFolder + '/' + i):
         shutil.rmtree(pathFolder + '/' + i)
+
 # Lista con los nombres de cada uno de los archivos
 filesNamesList = os.listdir(pathFolder)
 # Para todo archivo en la carpeta, extraiga su informacion 
@@ -23,11 +26,11 @@ for fileName in filesNamesList:
     text = fileHandle.read()
     fileHandle.close()
 
-    '''crear una nueva carpeta con el nombre del archivo y en la misma ruta
-    del archivo'''
+    #crear una nueva carpeta con el nombre del archivo y en la misma ruta
+    #del archivo
     folderPath = pathFolder + '/' + fileName + ' FOLDER'
 
-    'Si la ruta ya esta siendo utilizada por una carpeta'
+    #Si la ruta ya esta siendo utilizada por una carpeta
     if os.path.exists(folderPath):
         'eliminar la carpeta para evitar conflictos'
         shutil.rmtree(folderPath)
@@ -42,24 +45,24 @@ for fileName in filesNamesList:
     
     for gs in range(ngs):
 
-        'patron con las mediciones enumeradas por sensor'
+        #patron con las mediciones enumeradas por sensor
         dataMatch = patterns.dataRgx(gs)
 
-        'extraer la lista de los datos'
+        #extraer la lista de los datos
         listData = dataMatch.findall(text)
 
-        '''  sensores con indice menor a  se debe hacer una correcion a
-        la numeracion '''
+        #sensores con indice menor a  se debe hacer una correcion a
+        #la numeracion
         if gs < 10:
             cero = '0'
         else:
             cero = ''
 
-        'Un archivo para cada conjunto de datos de las mediciones'
+        #Un archivo para cada conjunto de datos de las mediciones
         newFilePath = cero + str(gs) + "sismogram" + ".txt"
 
-        '''Nombre del archivo almacenado en la ruta de la carpeta con el nombre
-        del evento'''
+        #Nombre del archivo almacenado en la ruta de la carpeta con el nombre
+        del evento
         newFile = open(folderPath + r'//' + newFilePath, 'w')
 
         '''almacenar la lista y reemplazar el : por nada para que haga
@@ -69,7 +72,11 @@ for fileName in filesNamesList:
 
         'luego de llenar el documento con los datos se cierra el archivo'
         newFile.close()
-    'fin de llenado de los archivos de datos'
+
+    #fin de llenado de los archivos de datos
+
+    #Extracción de la información de los archivos, cada uno de estos parámetros son 
+    # necesarios como imput del modelo.
     '----------------------- t_time -----------------------'
     't_time, inicio del buffer en segundos'
     ttimelist = patterns.t_time_rgx.findall(text)
