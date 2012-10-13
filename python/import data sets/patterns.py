@@ -1,7 +1,7 @@
 '''
 Created on 03/06/2012
 @author: leonardo
-patrones de las expresiones regulares buscadas
+Expresiones regulares de la información que se necesita extraer en el documento de codelco
 '''
 import re
 
