@@ -42,12 +42,12 @@ for k = 1:event.count
     
     % no todos los sensores empiezan el el mismo momento, no se entonces
     % por que los hacer partir todos en cero
-    F11 = cumsum(G11)*dt;
-    F12 = cumsum(G12)*dt;
-    F13 = cumsum(G13)*dt;
-    F22 = cumsum(G22)*dt;
-    F23 = cumsum(G23)*dt;
-    F33 = cumsum(G33)*dt;
+    F11 = cumsum(G11)*(timeDomain(2)-timeDomain(1));
+    F12 = cumsum(G12)*(timeDomain(2)-timeDomain(1));
+    F13 = cumsum(G13)*(timeDomain(2)-timeDomain(1));
+    F22 = cumsum(G22)*(timeDomain(2)-timeDomain(1));
+    F23 = cumsum(G23)*(timeDomain(2)-timeDomain(1));
+    F33 = cumsum(G33)*(timeDomain(2)-timeDomain(1));
     
     B = [];
     
@@ -141,12 +141,12 @@ for k = 1:cutEvent.count
     
     % no todos los sensores empiezan el el mismo momento, no se entonces
     % por que los hacer partir todos en cero
-    F11 = cumsum(G11)*dt;
-    F12 = cumsum(G12)*dt;
-    F13 = cumsum(G13)*dt;
-    F22 = cumsum(G22)*dt;
-    F23 = cumsum(G23)*dt;
-    F33 = cumsum(G33)*dt;
+    F11 = cumsum(G11)*(timeDomain(2)-timeDomain(1));
+    F12 = cumsum(G12)*(timeDomain(2)-timeDomain(1));
+    F13 = cumsum(G13)*(timeDomain(2)-timeDomain(1));
+    F22 = cumsum(G22)*(timeDomain(2)-timeDomain(1));
+    F23 = cumsum(G23)*(timeDomain(2)-timeDomain(1));
+    F33 = cumsum(G33)*(timeDomain(2)-timeDomain(1));
     
     B = [];
     

@@ -30,6 +30,14 @@ Y una rotación de los ejes para el campo desplazamiento filtrado
 [rotatefiltsrc,N1,N2,N3] = rotate(filtsrc)
 plot(rotatefiltsrc);
  ```
+fuente
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/source1.png?raw=true)
+
+fuente filtrada
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.source1.png?raw=true)
+
+fuente filtrada y rotada
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.r.source1.png?raw=true)
 
 ![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.source1.png?raw=true)
 
@@ -50,11 +58,23 @@ nSrc = 250;
 dt = 1/4800;
 [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt);
 
-% reconstrucci`on de un sensor y el error de estimaci'on
-m = 1;
-gs = event.gss(m);
-[gsRec, gsReal, error] = recon(event, gs, src);
+- - -
+
 ```
+clear('dataGsRec')
+clear('dataGsReal')
+% reconstrucción de un sensor y el error de estimación
+for m = 1:event.count
+    gs = event.gss(m);
+
+    % se obtiene de cada sensor la estimación
+    [dataGsRec{m}, dataGsReal{m}, errorL2] = recon(event, gs, src);
+end
+```
+Si repetimos el procedimiento para cada uno de los sensores, obtenemos los 
+siguientes gráficos
+
+
 
 ## Inversión de la señal
 Para obter la señal invertida en el dominio que contiene a todos los sensores
