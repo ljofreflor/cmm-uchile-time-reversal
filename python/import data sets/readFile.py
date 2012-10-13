@@ -4,7 +4,8 @@ import os                     # handle directories
 import shutil                 # remove and make folders
 import patterns               # regex
 import re
-# Ruta en la que se encuentran los archivos entregados por codelco
+# Ruta en la que se encuentran los archivos entregados por codelco, estos a su vez se
+# encuentran en una posición relativa a la posición de este archivo en la path
 pathFolder = r'/home/leonardo/Dropbox/Universidad de Chile/eventos en txt'
 'lista de archivos y directorios'
 files = os.listdir(pathFolder)
