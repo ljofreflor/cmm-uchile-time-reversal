@@ -24,7 +24,7 @@ leidos desde matlab, si quiere agregar nuevos eventos, ir al apartado "How To"
 
 ##Obtensión de la forma de la fuente asumiendo un ubicación conocido
 
- ```
+ ```matlab
 Events = importEvents();             % Importa todos los archivos a una lista de objetos events
 n = 1;                               % Número del evento que se desea estimar la forma de la fuente
 event = Events(n);                   % Evento en estudio, puede ser en 1:event.count
