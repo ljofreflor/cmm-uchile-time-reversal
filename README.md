@@ -3,9 +3,21 @@ entregados por codelco:
 
 #Instrucciones
 
-1. Bajar el proyecto mediante un archivo zip o crear un clone del proyecto
-2. En Matlab agregar la descargada o clonada en el **Path** del sistema
-3. Ejecutar los siguientes scripts de Matlab
+1 Bajar el proyecto
+1.1 Mediante un zip
+1.2 En alguna carpeta de su computador personal, y teniendo git instalado escribir en un terminal
+```
+git clone git@github.com:ljofre/cmm-uchile-time-reversal.git
+```
+2. Luego convertiremos los sets de datos en archivos que puedan ser utilizables desde matlab
+```
+cd cmm-uchile-time-reversal/python
+python readFiles.py
+```
+Esto generará unas nuevas carpetas con la información simplificada desde los set de datos a archivos *.txt que podrán ser
+leidos desde matlab, si quiere agregar nuevos eventos, ir al apartado "How To"
+3. En Matlab agregar la descargada o clonada en el **Path** del sistema
+4. Ejecutar los siguientes scripts de Matlab
 
 ##Obtensión de la forma de la fuente asumiendo un ubicación conocido
 
@@ -110,3 +122,7 @@ dt = 2/4800;
 En cada ubicación r0 que se asume como candidato a un epicentro sísmico, ocurre
 un error de estimación, se buscará entonces, dado un dominio dado, encontrar la ubicación
 que produzca una estimación de mínimo error.
+
+#How To
+
+##Agregar nuevos set de datos a los existentes
