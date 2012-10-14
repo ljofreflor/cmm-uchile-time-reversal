@@ -6,10 +6,13 @@ entregados por codelco:
 1 Bajar el proyecto
 1.1 Mediante un zip
 1.2 En alguna carpeta de su computador personal, y teniendo git instalado escribir en un terminal
+
 ```
 git clone git@github.com:ljofre/cmm-uchile-time-reversal.git
 ```
+
 2. Luego convertiremos los sets de datos en archivos que puedan ser utilizables desde matlab
+
 ```
 cd cmm-uchile-time-reversal/python
 python readFiles.py
@@ -23,13 +26,14 @@ leidos desde matlab, si quiere agregar nuevos eventos, ir al apartado "How To"
 
  ```
 Events = importEvents();             % Importa todos los archivos a una lista de objetos events
-n = 1;                              % Número del evento que se desea estimar la forma de la fuente
+n = 1;                               % Número del evento que se desea estimar la forma de la fuente
 event = Events(n);                   % Evento en estudio, puede ser en 1:event.count
                                      % forma de la fuente y error de estimación
 nSrc = 200;
 dt = .0005;
 [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt); 
 ```
+
 Para obtener el vector perpendicular al plano de ruptura se puede hacer el cambio de base
 mediante una matriz ortogonal que produzca máximo desplazamiento en un eje
 
@@ -37,6 +41,7 @@ mediante una matriz ortogonal que produzca máximo desplazamiento en un eje
 [rotatesrc,N1,N2,N3] = rotate(src)
 plot(rotatesrc);
  ```
+
 Y una rotación de los ejes para el campo desplazamiento filtrado
 ```        
 [rotatefiltsrc,N1,N2,N3] = rotate(filtsrc)
@@ -59,18 +64,12 @@ fuente filtrada y rotada
 
 En el cual veremos el campo de desplazamiento
 
-## Reconstrucción de un sensor para una fuente con el error de estimación
-
-```
-Events = importEvents();             % Importa todos los archivos a una lista de objetos events
-n = 1;                               % Número del evento que se desea estimar la forma de la fuente
-event = Events(n);                   % Evento en estudio, puede ser en 1:event.count
-                                     % forma de la fuente y error de estimación
-nSrc = 250;
-dt = 1/4800;
-[src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt);
 
 - - -
+
+## Reconstrucción de un sensor para una fuente con el error de estimación
+Ya con los eventos cargados y una fuente estimada, podemos reestimar cada 
+uno de los sensores mediante dicha fuente.
 
 ```
 clear('dataGsRec')
@@ -95,7 +94,7 @@ con una resolución arbitraria ( definir resolución optima ).
 ```
 [X, Y, Z] = sensor.reverse_signal();
 ```
-***
+- - -
 
 ##Pruebas de validez del código 
  
