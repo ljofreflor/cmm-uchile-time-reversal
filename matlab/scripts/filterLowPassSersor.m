@@ -1,9 +1,9 @@
-function source = filterLowPassSersor(source)
+function a = filterLowPassSersor(source)
 n = size(source,1);
 nn = 2^(nextpow2(n));
 aa = zeros(3,nn);
 a = zeros(3,n);
-aa(:,1:n) = source(:,2:4)';
+aa(:,1:n) = source';
 
 for j = 1
     cutfrec = 13 + j; %esto hay que hacerlo mejor
@@ -19,5 +19,5 @@ for j = 1
     end
 end
 % reemplazar la fuente por la fuente filtrada
-source(:,2:4) = a';
+a = a';
 end

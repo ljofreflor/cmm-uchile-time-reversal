@@ -38,14 +38,14 @@ Para obtener el vector perpendicular al plano de ruptura se puede hacer el cambi
 mediante una matriz ortogonal que produzca máximo desplazamiento en un eje
 
 ```        
-[rotatesrc,N1,N2,N3] = rotate(src)
-plot(rotatesrc);
+[rotatesrc] = rotate(src);
+plotSrc(rotatesrc);
  ```
 
 Y una rotación de los ejes para el campo desplazamiento filtrado
 ```        
-[rotatefiltsrc,N1,N2,N3] = rotate(filtsrc)
-plot(rotatefiltsrc);
+[rotatefiltsrc] = rotate(filtsrc);
+plotSrc(rotatefiltsrc);
  ```
 fuente
 ![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/source1.png?raw=true)
@@ -75,16 +75,28 @@ uno de los sensores mediante dicha fuente.
 clear('dataGsRec')
 clear('dataGsReal')
 % reconstrucción de un sensor y el error de estimación
-for m = 1:event.count
-    gs = event.gss(m);
-
+for index = 1:event.count
     % se obtiene de cada sensor la estimación
-    [dataGsRec{m}, dataGsReal{m}, errorL2] = recon(event, gs, src);
+    [dataGsRec{index}, dataGsReal{index}, errorL2] = recon(event, index, src);
 end
 ```
 Si repetimos el procedimiento para cada uno de los sensores, obtenemos los 
 siguientes gráficos
 
+## Estimación de la fuente dado 1 sensor y reestimación de dicho sensor mediante esa fuente
+Se requiere saber el comportamiento del algoritmo para generar fuentes que reestimen
+a los sensores reales y compararlos.
+
+```matlab
+% estimaci`o de la fuente dado un solo sensor en donde "event" es el evento
+% al cual se quiere estimar la fuente e "index" es el indice del sensor que
+% va a reconstruir a la fuente
+index = 1;
+[src, cutsrc, filtsrc, filtcutsrc, error] = sourceOneSensor(event, nSrc, dt, index); 
+
+% reconstrucción de la fuente dado el geosensor
+[dataGsRec, dataGsReal, errorL2] = recon(event, index, src);
+```
 
 
 ## Inversión de la señal

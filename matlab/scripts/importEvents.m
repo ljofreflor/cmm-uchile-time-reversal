@@ -4,7 +4,7 @@ function events = importEvents()
 % root_path es la ruta en donde se encuentran todos los eventos generados
 % por la aplicación en python.
 cd ..
-cd eventos' en txt'
+cd data' sets'
 root_path = pwd;
 cd ..
 cd matlab
@@ -51,8 +51,10 @@ for ii = 1:Nevents
     % cuales son parametros
     
     expr = [{filesNames.name}];
+    
+    %numero de geonsensores del evento es igual al numero de archivos que
+    %tienen como sufijo sismogram
     Ngs = sum(cellfun(@sum,regexp(expr,'.*sismogram.txt')));
-
     % todos los dem'as archivos son parametros
     P_pick                 = Eventsdata{ii,Ngs + 1}.data;
     r                      = Eventsdata{ii,Ngs + 2};
@@ -81,6 +83,8 @@ for ii = 1:Nevents
     % mediciones, sabemos que todos los archivos que contengan por nombre
     % la cadena "*sismogram.txt" son sensores con mediciones.
     
+
+    
     for kk = 1:Ngs
         M  = Eventsdata{ii,kk};
         sensorData  = M(:,3:5);
@@ -90,10 +94,7 @@ for ii = 1:Nevents
         gs  = Geosensor(r0, t_time(kk), hardware_sampling_rate(kk),...
             TriggerPosition(kk), p_time(kk), s_time(kk),valid_P(kk),...
             valid_S(kk), valid_SP(kk), site_id(kk)); 
-        
-        % demasiados parametros en el constructor hacen ilegible y poco
-        % mantenible el c`odigo
-        
+       
         % se agregar el geosensor conjunto de geosensores
         events(ii) = events(ii).addGeosensor(gs, sensorData);
     end

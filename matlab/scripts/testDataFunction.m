@@ -1,4 +1,4 @@
-function data = testDatafunction(ev,index,time)
+function data = testDataFunction(ev,index,time)
 
 i = 0;
 j = 0;

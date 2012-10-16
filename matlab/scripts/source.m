@@ -222,10 +222,16 @@ cutsrc(:,4) = alphas(3:3:end)';
 src(:,2:4) = detrend(src(:,2:4));
 cutsrc(:,2:4) = detrend(cutsrc(:,2:4));
 
+% filtros de cada una de las sen~ales
+filtsrc = zeros(size(src));
+filtsrc(:,1) = src(:,1);
 
-filtsrc = detrend(filterLowPassSersor(src));
+filtcutsrc = zeros(size(src));
+filtcutsrc(:,1) = src(:,1);
 
-filtcutsrc = detrend(filterLowPassSersor(cutsrc));
+filtsrc(:,2:4) = detrend(filterLowPassSersor(src(:,2:4)));
+filtcutsrc(:,2:4) = detrend(filterLowPassSersor(cutsrc(:,2:4)));
+
 % error del modelo
 error = 0;
 end
