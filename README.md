@@ -37,15 +37,16 @@ dt = .0005;
 Para obtener el vector perpendicular al plano de ruptura se puede hacer el cambio de base
 mediante una matriz ortogonal que produzca máximo desplazamiento en un eje
 
-```        
-[rotatesrc] = rotate(src);
-plotSrc(rotatesrc);
+```matlab      
+[rotatesrc] = rotate(src); % fuente rotada
+plotSrc(event.origin_time,rotatesrc); % mostrar cada una de las componentes con sus respectivos
+                    % porcentajes de señal en cada eje.
  ```
 
 Y una rotación de los ejes para el campo desplazamiento filtrado
 ```        
 [rotatefiltsrc] = rotate(filtsrc);
-plotSrc(rotatefiltsrc);
+plotSrc(event.origin_time,rotatefiltsrc);
  ```
 fuente
 ![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/source1.png?raw=true)
@@ -83,20 +84,19 @@ end
 Si repetimos el procedimiento para cada uno de los sensores, obtenemos los 
 siguientes gráficos
 
-## Estimación de la fuente dado 1 sensor y reestimación de dicho sensor mediante esa fuente
-Se requiere saber el comportamiento del algoritmo para generar fuentes que reestimen
-a los sensores reales y compararlos.
+## Estimación de la fuente dado un conjunto arbitrario de sensores
 
 ```matlab
-% estimaci`o de la fuente dado un solo sensor en donde "event" es el evento
-% al cual se quiere estimar la fuente e "index" es el indice del sensor que
-% va a reconstruir a la fuente
-index = 1;
+index = [ 6 7 8 ]; % conjunto de sensores que se quieren usar
 [src, cutsrc, filtsrc, filtcutsrc, error] = sourceOneSensor(event, nSrc, dt, index); 
-
-% reconstrucción de la fuente dado el geosensor
-[dataGsRec, dataGsReal, errorL2] = recon(event, index, src);
+[rotsrc] = rotate(src);
+plotSrc(event.origin_time, rotsrc);
 ```
+
+##Filtro optimo
+Se espera que después del filtro la rotación de la señal tenga una cantidad mínima 
+de esta en el eje con el valor propio más pequeño, entonces se usará la frecuencia 
+de corte que minimice ese valor.
 
 
 ## Inversión de la señal

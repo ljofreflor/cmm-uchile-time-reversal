@@ -1,4 +1,4 @@
-function [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt)
+function [src, cutsrc, filtsrc, filtcutsrc, error] = sourceOneSensor(event, nSrc, dt, index)
 
 % paramentros f`isicos del evento en especial
 alpha = event.alpha;
@@ -8,7 +8,9 @@ rho   = event.rho;
 LocR = event.LocR;
 gss = [event.gss];
 minTIMES = [gss.firsttime];
+minTIMES = minTIMES(index);
 t0 = min([event.origin_time minTIMES]);
+
 % para la recosntrucci`o de la fuente se requiere un dt que es el tiempo
 % entre medicion y la cantidad de mediciones de la reconstrucci`on, con
 % ello se puede recosntruir la fuente en una ventana srcTime
@@ -21,7 +23,7 @@ A = [];
 
 % cosntrucci`on del sistema matricial para en sensor sin cortar las colas
 % entre el tiempo de llegada de la onda s y p
-for k = 1:event.count
+for k = index 
     % sensor a iterar
     sens = event.gss(k);
     hsr = sens.hardware_sampling_rate;
@@ -120,7 +122,7 @@ src(:,4) = alphas(3:3:end)';
 % repetir el procedimiento, pero con los sensores cortados
 cutEvent = windowsErase(event);
 
-for k = 1:cutEvent.count
+for k = 1:index
     % sensor a iterar
     sens = cutEvent.gss(k);
     hsr = sens.hardware_sampling_rate;
@@ -237,3 +239,5 @@ filtcutsrc(:,2:4) = detrend(filterLowPassSersor(cutsrc(:,2:4)));
 % error del modelo
 error = 0;
 end
+
+

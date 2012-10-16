@@ -4,20 +4,11 @@ classdef Event
     % set de datos dados en los documentos
     properties
         eventName
-        sp_valid
-        cordenadasValidad
-        Syncdt
-        fftEventTimeWindowsBoundary
-        sourceParameters
-        physicParameters
-        maxDataSize
         beta_est
         alpha_est
         alpha_ind
         beta_ind          % estimaciones individuales
         gss;              % lista de geosensores
-        p_times
-        s_times;          % tiempo de llegada de la onda s y onda p
         alpha
         beta
         rho
@@ -43,35 +34,12 @@ classdef Event
         % estimacion de r_0 por medio de convergencia de parametros
         LocR_est
         r0                              % coeficiente x0 y0 z0 de cada sensor
-        dis_to_src                      % listas de distancias de los sensores a la fuente estimada
-        dis_to_src_old
         % estimaciones de alpha, beta y origin_time para cada sensor por
         % separado verificar la consistencia de los datos.
         all_est
         % lista de las velocidades alpha y beta
         alpha_ind_post
         beta_ind_post
-        
-        % lista que contiene los flag de aceptacion de P, S y SP
-        validP_list
-        validS_list
-        validSP_list
-        
-        % parametros estadisticos
-        mean_alpha
-        std_alpha
-        meanSP_alpha
-        stdSP_alpha
-        
-        mean_beta
-        std_beta
-        meanSP_beta
-        stdSP_beta
-        
-        validAllList
-        
-        % cociente entre la distancia inicial y la estimada
-        disc_cocient
     end
     
     methods
