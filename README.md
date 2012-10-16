@@ -4,14 +4,14 @@ entregados por codelco:
 #Instrucciones
 
 1 Bajar el proyecto
-1.1 Mediante un zip
-1.2 En alguna carpeta de su computador personal, y teniendo git instalado escribir en un terminal
+2 Mediante un zip
+3 En alguna carpeta de su computador personal, y teniendo git instalado escribir en un terminal
 
 ```
 git clone git@github.com:ljofre/cmm-uchile-time-reversal.git
 ```
 
-2. Luego convertiremos los sets de datos en archivos que puedan ser utilizables desde matlab
+4 Luego convertiremos los sets de datos en archivos que puedan ser utilizables desde matlab
 
 ```
 cd cmm-uchile-time-reversal/python
@@ -19,8 +19,8 @@ python readFiles.py
 ```
 Esto generará unas nuevas carpetas con la información simplificada desde los set de datos a archivos *.txt que podrán ser
 leidos desde matlab, si quiere agregar nuevos eventos, ir al apartado "How To"
-3. En Matlab agregar la descargada o clonada en el **Path** del sistema
-4. Ejecutar los siguientes scripts de Matlab
+5 En Matlab agregar la descargada o clonada en el **Path** del sistema
+6 Ejecutar los siguientes scripts de Matlab
 
 ##Obtensión de la forma de la fuente asumiendo un ubicación conocido
 
@@ -44,7 +44,7 @@ plotSrc(event.origin_time,rotatesrc); % mostrar cada una de las componentes con 
  ```
 
 Y una rotación de los ejes para el campo desplazamiento filtrado
-```        
+```matlab       
 [rotatefiltsrc] = rotate(filtsrc);
 plotSrc(event.origin_time,rotatefiltsrc);
  ```
@@ -72,7 +72,7 @@ En el cual veremos el campo de desplazamiento
 Ya con los eventos cargados y una fuente estimada, podemos reestimar cada 
 uno de los sensores mediante dicha fuente.
 
-```
+```matlab
 clear('dataGsRec')
 clear('dataGsReal')
 % reconstrucción de un sensor y el error de estimación
@@ -95,9 +95,8 @@ plotSrc(event.origin_time, rotsrc);
 
 ##Filtro optimo
 Se espera que después del filtro la rotación de la señal tenga una cantidad mínima 
-de esta en el eje con el valor propio más pequeño, entonces se usará la frecuencia 
-de corte que minimice ese valor.
-
+de esta en uno de sus ejes. el La frecuencia de corte será entonces la que produzca que
+ese porcentaje sea mínimo.
 
 ## Inversión de la señal
 Para obter la señal invertida en el dominio que contiene a todos los sensores
