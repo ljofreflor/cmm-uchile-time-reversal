@@ -223,8 +223,8 @@ cutsrc(:,3) = alphas(2:3:end)';
 cutsrc(:,4) = alphas(3:3:end)';
 
 % filtrar las fuentes en sus dos versiones
-src(:,2:4) = detrend(src(:,2:4));
-cutsrc(:,2:4) = detrend(cutsrc(:,2:4));
+% src(:,2:4) = detrend(src(:,2:4));
+% cutsrc(:,2:4) = detrend(cutsrc(:,2:4));
 
 % filtros de cada una de las sen~ales
 filtsrc = zeros(size(src));

@@ -1,4 +1,4 @@
-function a = filterLowPassSersor(source)
+function a = filterLowPassSersor(source, cutfrec)
 n = size(source,1);
 nn = 2^(nextpow2(n));
 aa = zeros(3,nn);

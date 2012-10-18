@@ -26,13 +26,21 @@ leidos desde matlab, si quiere agregar nuevos eventos, ir al apartado "How To"
 
  ```matlab
 Events = importEvents();             % Importa todos los archivos a una lista de objetos events
-n = 1;                               % Número del evento que se desea estimar la forma de la fuente
+n = 2;                               % Número del evento que se desea estimar la forma de la fuente
 event = Events(n);                   % Evento en estudio, puede ser en 1:event.count
                                      % forma de la fuente y error de estimación
 nSrc = 200;
-dt = .0005;
+dt = .001;
 [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt); 
+plotSrc(event.origin_time, filtsrc);
 ```
+
+Evento
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.source2.png?raw=true)
+
+
+Evento filtrado y rotado
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.r.source2.png?raw=true)
 
 Para obtener el vector perpendicular al plano de ruptura se puede hacer el cambio de base
 mediante una matriz ortogonal que produzca máximo desplazamiento en un eje
@@ -40,7 +48,7 @@ mediante una matriz ortogonal que produzca máximo desplazamiento en un eje
 ```matlab      
 [rotatesrc] = rotate(src); % fuente rotada
 plotSrc(event.origin_time,rotatesrc); % mostrar cada una de las componentes con sus respectivos
-                    % porcentajes de señal en cada eje.
+                                      % porcentajes de señal en cada eje.
  ```
 
 Y una rotación de los ejes para el campo desplazamiento filtrado
@@ -66,7 +74,33 @@ fuente filtrada y rotada
 En el cual veremos el campo de desplazamiento
 
 
+
+## Estimación de la fuente dado un conjunto arbitrario de sensores
+
+```matlab
+index = [2 3 5 7];                         % conjunto de sensores que se quieren usar
+[src, cutsrc, filtsrc, filtcutsrc, error] = sourceOneSensor(event, nSrc, dt, index); 
+[rotsrc] = rotate(src);
+plotSrc(event.origin_time, rotsrc);
+```
+
+## Estimación de la fuente dado un sensor y reestimacion de dicho sensor mediante esa fuente
+Para ver la validez de una fuente estimada se espera que sensores estimados dado dicha fuente
+sean parecidos a la medicion de los sensores reales
+
+```matlab
+clear('dataGsRec')
+clear('dataGsReal')
+index = [1];                         % conjunto de sensores que se quieren usar
+[src, cutsrc, filtsrc, filtcutsrc, error] = sourceOneSensor(event, nSrc, dt, index); 
+[dataGsRec, dataGsReal, errorL2] = recon(event, index, src);
+
+```
+
 - - -
+
+
+
 
 ## Reconstrucción de un sensor para una fuente con el error de estimación
 Ya con los eventos cargados y una fuente estimada, podemos reestimar cada 
@@ -84,14 +118,6 @@ end
 Si repetimos el procedimiento para cada uno de los sensores, obtenemos los 
 siguientes gráficos
 
-## Estimación de la fuente dado un conjunto arbitrario de sensores
-
-```matlab
-index = [ 6 7 8 ]; % conjunto de sensores que se quieren usar
-[src, cutsrc, filtsrc, filtcutsrc, error] = sourceOneSensor(event, nSrc, dt, index); 
-[rotsrc] = rotate(src);
-plotSrc(event.origin_time, rotsrc);
-```
 
 ##Filtro optimo
 Se espera que después del filtro la rotación de la señal tenga una cantidad mínima 
@@ -102,7 +128,7 @@ ese porcentaje sea mínimo.
 Para obter la señal invertida en el dominio que contiene a todos los sensores
 con una resolución arbitraria ( definir resolución optima ).
 
-```
+```matlab
 [X, Y, Z] = sensor.reverse_signal();
 ```
 - - -
@@ -114,7 +140,7 @@ Este framework consta de una serie de pruebas que validan la integridad numéric
 Se crea un evento con sensores que captan un evento sísmico imposible, solo
 con el objetivo de ver la capacidad del modelo de reconstruir esa fuente.
 
-```
+```matlab
 art = eventoArtificial(event);
 nSrc = 250;
 dt = 2/4800;
