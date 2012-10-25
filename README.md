@@ -3,15 +3,15 @@ entregados por codelco:
 
 #Instrucciones
 
-1 Bajar el proyecto
-2 Mediante un zip
-3 En alguna carpeta de su computador personal, y teniendo git instalado escribir en un terminal
+1. Bajar el proyecto
+2. Mediante un zip
+3. En alguna carpeta de su computador personal, y teniendo git instalado escribir en un terminal
 
 ```
 git clone git@github.com:ljofre/cmm-uchile-time-reversal.git
 ```
 
-4 Luego convertiremos los sets de datos en archivos que puedan ser utilizables desde matlab
+4. Luego convertiremos los sets de datos en archivos que puedan ser utilizables desde matlab
 
 ```
 cd cmm-uchile-time-reversal/python
@@ -19,8 +19,8 @@ python readFiles.py
 ```
 Esto generará unas nuevas carpetas con la información simplificada desde los set de datos a archivos *.txt que podrán ser
 leidos desde matlab, si quiere agregar nuevos eventos, ir al apartado "How To"
-5 En Matlab agregar la descargada o clonada en el **Path** del sistema
-6 Ejecutar los siguientes scripts de Matlab
+5. En Matlab agregar la descargada o clonada en el **Path** del sistema
+6. Ejecutar los siguientes scripts de Matlab
 
 ##Obtensión de la forma de la fuente asumiendo un ubicación conocido
 
@@ -34,7 +34,8 @@ dt = .0005;
 Podemos ir probando cada uno de los sensores, en esta oportunidad se irán elimimando
 los sensores que por medio de una inspección visual se note que son ruidosos hasta
 encontrar un criterio automarizable, los sensores censurados estarán enumerados en 
-los comentarios.
+los comentarios. La linea verticar roja representa el tiempo estimado por codelco con el
+nombre de *origin_time*.
 ```matlab
 n = 1;                               % Número del evento que se desea estimar la forma de la fuente
 event = Events(n); 
