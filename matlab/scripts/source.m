@@ -1,4 +1,4 @@
-function [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt)
+function [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, gssIndex)
 
 % paramentros f`isicos del evento en especial
 alpha = event.alpha;
@@ -8,7 +8,9 @@ rho   = event.rho;
 LocR = event.LocR;
 gss = [event.gss];
 minTIMES = [gss.firsttime];
+
 t0 = min([event.origin_time minTIMES]);
+
 % para la recosntrucci`o de la fuente se requiere un dt que es el tiempo
 % entre medicion y la cantidad de mediciones de la reconstrucci`on, con
 % ello se puede recosntruir la fuente en una ventana srcTime
@@ -21,7 +23,7 @@ A = [];
 
 % cosntrucci`on del sistema matricial para en sensor sin cortar las colas
 % entre el tiempo de llegada de la onda s y p
-for k = 1:event.count
+for k = gssIndex
     % sensor a iterar
     sens = event.gss(k);
     hsr = sens.hardware_sampling_rate;
@@ -97,18 +99,18 @@ for k = 1:event.count
     if sens.medicionesValidas(3) == 1
         U = horzcat(U,despla(3,:));
     end
-    
 end
 
-% esto aun no lo entiendo aun
-magnitude=norm(A);
-A=A/magnitude;
-U=U/magnitude;
+% dividir por la magnitud a ambos lados para estabilidad numerica
+magnitude = norm(A);
+A = A/magnitude;
+U = U/magnitude;
 
 % inversa generalizada de Moore-Penrose para encontrar la fuente
 alphas = (U*A')*pinv((A*A'));
 
-
+% promedio del error de medición
+error = mean(((A)'*(alphas)' - U').^2);
 
 src = zeros([size(alphas,2)/3 4]);
 src(:,1) = srcTime';
@@ -120,7 +122,7 @@ src(:,4) = alphas(3:3:end)';
 % repetir el procedimiento, pero con los sensores cortados
 cutEvent = windowsErase(event);
 
-for k = 1:cutEvent.count
+for k = gssIndex
     % sensor a iterar
     sens = cutEvent.gss(k);
     hsr = sens.hardware_sampling_rate;
@@ -199,10 +201,10 @@ for k = 1:cutEvent.count
     
 end
 
-% esto aun no lo entiendo aun
-magnitude=norm(A);
-A=A/magnitude;
-U=U/magnitude;
+% Se divide por la norma para poder
+magnitude = norm(A);
+A = A/magnitude;
+U = U/magnitude;
 
 % inversa generalizada de Moore-Penrose para encontrar la fuente
 alphas = (U*A')*pinv((A*A'));
@@ -221,8 +223,8 @@ cutsrc(:,3) = alphas(2:3:end)';
 cutsrc(:,4) = alphas(3:3:end)';
 
 % filtrar las fuentes en sus dos versiones
-src(:,2:4) = detrend(src(:,2:4));
-cutsrc(:,2:4) = detrend(cutsrc(:,2:4));
+% src(:,2:4) = detrend(src(:,2:4));
+% cutsrc(:,2:4) = detrend(cutsrc(:,2:4));
 
 % filtros de cada una de las sen~ales
 filtsrc = zeros(size(src));
@@ -234,6 +236,6 @@ filtcutsrc(:,1) = src(:,1);
 filtsrc(:,2:4) = detrend(filterLowPassSersor(src(:,2:4)));
 filtcutsrc(:,2:4) = detrend(filterLowPassSersor(cutsrc(:,2:4)));
 
-% error del modelo
-error = 0;
 end
+
+

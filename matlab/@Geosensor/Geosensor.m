@@ -61,7 +61,9 @@ classdef Geosensor
             obj.IsSpeedometer = 1;
             obj.IsAccelerometer = 0;
 
-            % existe un conjunto menor de sensores que son acelerometros
+            % existe un conjunto menor de sensores que son acelerometros y
+            % que no se encuetran especificados en los documentos de los
+            % set de datos de codelco
             accel = [76 82 118 126 146 147];
 
             id = obj.sensor_id;

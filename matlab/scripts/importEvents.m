@@ -62,13 +62,14 @@ for ii = 1:Nevents
     TriggerPosition        = Eventsdata{ii,Ngs + 4}.data;
     hardware_sampling_rate = Eventsdata{ii,Ngs + 5}.data;
     model_data             = Eventsdata{ii,Ngs + 6}.data;
-    p_time                 = Eventsdata{ii,Ngs + 7}.data(:,4);
-    s_time                 = Eventsdata{ii,Ngs + 8}.data(:,4);
-    site_id                = Eventsdata{ii,Ngs + 9}.data;
-    t_time                 = Eventsdata{ii,Ngs + 10}.data(:,4);
-    valid_P                = Eventsdata{ii,Ngs + 11}.data;
-    valid_S                = Eventsdata{ii,Ngs + 12}.data;
-    valid_SP               = Eventsdata{ii,Ngs + 13}.data;
+    name                   = Eventsdata{ii,Ngs + 7};
+    p_time                 = Eventsdata{ii,Ngs + 8}.data(:,4);
+    s_time                 = Eventsdata{ii,Ngs + 9}.data(:,4);
+    site_id                = Eventsdata{ii,Ngs + 10}.data;
+    t_time                 = Eventsdata{ii,Ngs + 11}.data(:,4);
+    valid_P                = Eventsdata{ii,Ngs + 12}.data;
+    valid_S                = Eventsdata{ii,Ngs + 13}.data;
+    valid_SP               = Eventsdata{ii,Ngs + 14}.data;
     alpha                  = model_data(1);
     beta                   = model_data(2);
     rho                    = model_data(3);
@@ -77,7 +78,7 @@ for ii = 1:Nevents
     LocR = [model_data(5), model_data(6), model_data(7)];
     error = 0.15;
     tail_per = 0.0;
-    events = [events Event(alpha,beta,rho,LocR,origin_time, error, tail_per)];
+    events = [events Event(name,alpha,beta,rho,LocR,origin_time, error, tail_per)];
     
     % Cada evento tiene una cantidad variable de sensores que obtienen
     % mediciones, sabemos que todos los archivos que contengan por nombre

@@ -1,8 +1,9 @@
 # se puede iterar por sobre los archivos de tal manera de que se generen automaticamete
-# los patrones y no tener que definirlos manualmente.
+# los patrones y no tener que definirlos manualmente. Eso quiere decir tener la capacidad
+# de mandar todos el archivo completo a un objeto matlab.
 import os                     
-import shutil                 # remove and make folders
-import patterns               # regex
+import shutil                 
+import patterns               
 import re
 
 # Ruta en la que se encuentran los archivos entregados por codelco, estos a su vez se
@@ -19,8 +20,11 @@ for i in files:
 
 # Lista con los nombres de cada uno de los archivos
 filesNamesList = os.listdir(pathFolder)
+   
+
 # Para todo archivo en la carpeta, extraiga su informacion 
 for fileName in filesNamesList:
+    
     #abrir archivo el i-esimo archivo, almacenar su contenido y cerrarlo
     fileHandle = open(pathFolder + '/' + fileName, 'r')
     text = fileHandle.read()
@@ -29,6 +33,8 @@ for fileName in filesNamesList:
     #crear una nueva carpeta con el nombre del archivo y en la misma ruta
     #del archivo
     folderPath = pathFolder + '/' + fileName + ' FOLDER'
+    
+
 
     #Si la ruta ya esta siendo utilizada por una carpeta
     if os.path.exists(folderPath):
@@ -37,6 +43,12 @@ for fileName in filesNamesList:
 
     # crear una carpeta en donde almacenar los archivos
     os.mkdir(folderPath)
+    
+    # despues de creada la carpeta se genera un archivo con el nombre del
+    # evento
+    nameFile = open(folderPath + '/' + 'name.txt', 'w')
+    nameFile.write(fileName)
+    nameFile.close()
     # todos los geosensores, hay que saber cuantos geosensores existen en el 
     # documento, para ello vemos el patron en la variable text, ngs es la variable
     # que contiene el n'umero de geosensores de un evento.

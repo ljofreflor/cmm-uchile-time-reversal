@@ -26,13 +26,27 @@ leidos desde matlab, si quiere agregar nuevos eventos, ir al apartado "How To"
 
  ```matlab
 Events = importEvents();             % Importa todos los archivos a una lista de objetos events
-n = 2;                               % Número del evento que se desea estimar la forma de la fuente
-event = Events(n);                   % Evento en estudio, puede ser en 1:event.count
+                  % Evento en estudio, puede ser en 1:event.count
                                      % forma de la fuente y error de estimación
-nSrc = 200;
-dt = .001;
-[src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt); 
-plotSrc(event.origin_time, filtsrc);
+nSrc = 100;
+dt = .002;
+
+n = 1;                               % Número del evento que se desea estimar la forma de la fuente
+event = Events(n); 
+[src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, [1:2 4:event.count]); 
+plotSrc(event.origin_time, src);
+% el sensor_id = 25 genera una medición extra~na
+
+n = 2;
+event = Events(n);   
+[src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, [1 3:4 6:event.count]); 
+plotSrc(event.origin_time, src);
+
+n = 3;
+event = Events(n);   
+[src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, [2:event.count]); 
+plotSrc(event.origin_time, src);
+% sensor_id = 20
 ```
 
 Evento
@@ -40,6 +54,10 @@ Evento
 
 
 Evento filtrado y rotado
+```
+rotfiltsrc = rotate(filtsrc);
+plotSrc(event.origin_time, rotfiltsrc);
+```
 ![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.r.source2.png?raw=true)
 
 Para obtener el vector perpendicular al plano de ruptura se puede hacer el cambio de base
@@ -78,7 +96,7 @@ En el cual veremos el campo de desplazamiento
 ## Estimación de la fuente dado un conjunto arbitrario de sensores
 
 ```matlab
-index = [2 3 5 7];                         % conjunto de sensores que se quieren usar
+index = [1:4 6:14];                         % conjunto de sensores que se quieren usar
 [src, cutsrc, filtsrc, filtcutsrc, error] = sourceOneSensor(event, nSrc, dt, index); 
 [rotsrc] = rotate(src);
 plotSrc(event.origin_time, rotsrc);

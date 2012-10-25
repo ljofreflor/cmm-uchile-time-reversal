@@ -3,7 +3,7 @@ classdef Event
     % correspondiente al evento en si, como el tiempo estimado por codelco y la posici'on en los
     % set de datos dados en los documentos
     properties
-        eventName
+        name
         beta_est
         alpha_est
         alpha_ind
@@ -44,7 +44,8 @@ classdef Event
     
     methods
         % class constructor
-        function obj =  Event(alpha, beta, rho, LocR, origin_time, error, tail_per)
+        function obj =  Event(name,alpha, beta, rho, LocR, origin_time, error, tail_per)
+            obj.name = name;
             obj.count           = 0;
             obj.alpha           = alpha;
             obj.beta            = beta;
