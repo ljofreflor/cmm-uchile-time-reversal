@@ -26,22 +26,33 @@ leidos desde matlab, si quiere agregar nuevos eventos, ir al apartado "How To"
 
  ```matlab
 Events = importEvents();             % Importa todos los archivos a una lista de objetos events
-                  % Evento en estudio, puede ser en 1:event.count
+                                     % Evento en estudio, puede ser en 1:event.count
                                      % forma de la fuente y error de estimación
-nSrc = 100;
-dt = .002;
-
+nSrc = 256;
+dt = .0005;
+```
+Podemos ir probando cada uno de los sensores, en esta oportunidad se irán elimimando
+los sensores que por medio de una inspección visual se note que son ruidosos hasta
+encontrar un criterio automarizable, los sensores censurados estarán enumerados en 
+los comentarios.
+```matlab
 n = 1;                               % Número del evento que se desea estimar la forma de la fuente
 event = Events(n); 
 [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, [1:2 4:event.count]); 
 plotSrc(event.origin_time, src);
 % el sensor_id = 25 genera una medición extra~na
+```
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/source1.png?raw=true)
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.r.source1.png?raw=true)
 
+
+```matlab
 n = 2;
 event = Events(n);   
 [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, [1 3:4 6:event.count]); 
 plotSrc(event.origin_time, src);
-
+```
+```matlab
 n = 3;
 event = Events(n);   
 [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, [2:event.count]); 
