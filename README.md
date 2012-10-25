@@ -8,19 +8,19 @@ entregados por codelco:
 3. En alguna carpeta de su computador personal, y teniendo git instalado escribir en un terminal
 
 ```
-git clone git@github.com:ljofre/cmm-uchile-time-reversal.git
+>>git clone git@github.com:ljofre/cmm-uchile-time-reversal.git
 ```
 
 4. Luego convertiremos los sets de datos en archivos que puedan ser utilizables desde matlab
 
 ```
-cd cmm-uchile-time-reversal/python
-python readFiles.py
+>>cd cmm-uchile-time-reversal/python
+>>python readFiles.py
 ```
-Esto generará unas nuevas carpetas con la información simplificada desde los set de datos a archivos *.txt que podrán ser
-leidos desde matlab, si quiere agregar nuevos eventos, ir al apartado "How To"
-5. En Matlab agregar la descargada o clonada en el **Path** del sistema
-6. Ejecutar los siguientes scripts de Matlab
+5. Esto generará unas nuevas carpetas con la información simplificada desde los set de datos a archivos *.txt que podrán ser
+leidos desde matlab, si quiere agregar nuevos eventos, ir al apartado "How To".
+6. En Matlab agregar la descargada o clonada en el *Path* del sistema
+7. Ejecutar los siguientes scripts de Matlab
 
 ##Obtensión de la forma de la fuente asumiendo un ubicación conocido
 
