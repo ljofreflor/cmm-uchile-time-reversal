@@ -41,6 +41,7 @@ n = 1;                               % Número del evento que se desea estimar l
 event = Events(n); 
 [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, [1:2 4:event.count]); 
 plotSrc(event.origin_time, src);
+plotSrc(event.origin_time, rotate(filtsrc));
 % el sensor_id = 25 genera una medición extra~na
 ```
 ![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/source1.png?raw=true)
@@ -52,14 +53,23 @@ n = 2;
 event = Events(n);   
 [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, [1 3:4 6:event.count]); 
 plotSrc(event.origin_time, src);
+plotSrc(event.origin_time, rotate(filtsrc));
 ```
+
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/source2.png?raw=true)
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.r.source2.png?raw=true)
+
 ```matlab
 n = 3;
 event = Events(n);   
 [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, [2:event.count]); 
 plotSrc(event.origin_time, src);
+plotSrc(event.origin_time, rotate(filtsrc));
 % sensor_id = 20
 ```
+
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/source3.png?raw=true)
+![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.r.source3.png?raw=true)
 
 Evento
 ![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.source2.png?raw=true)
