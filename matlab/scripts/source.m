@@ -1,4 +1,4 @@
-function [src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, gssIndex)
+function [src, cutsrc, filtsrc, filtcutsrc, error, alphas] = source(event, nSrc, dt, gssIndex)
 
 % paramentros f`isicos del evento en especial
 alpha = event.alpha;
@@ -15,7 +15,7 @@ t0 = min([event.origin_time minTIMES]);
 % entre medicion y la cantidad de mediciones de la reconstrucci`on, con
 % ello se puede recosntruir la fuente en una ventana srcTime
 
-srcTime = t0 + (0:(nSrc-1))*dt;
+srcTime = t0 + (0:(nSrc - 1))*dt;
 
 % matrices en donde se construye el sistema lineal
 U = [];
@@ -108,7 +108,7 @@ U = U/magnitude;
 
 % inversa generalizada de Moore-Penrose para encontrar la fuente
 alphas = (U*A')*pinv((A*A'));
-
+%alphas = U*pinv(A);
 % promedio del error de medición
 error = mean(((A)'*(alphas)' - U').^2);
 

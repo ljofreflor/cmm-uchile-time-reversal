@@ -20,7 +20,10 @@ entregados por codelco:
 5. Esto generará unas nuevas carpetas con la información simplificada desde los set de datos a archivos *.txt que podrán ser
 leidos desde matlab, si quiere agregar nuevos eventos, ir al apartado "How To".
 6. En Matlab agregar la descargada o clonada en el *Path* del sistema
-7. Ejecutar los siguientes scripts de Matlab
+7. Ejecutar los siguientes scripts de Matlab.
+
+##0btensión de la fuente como fuerza mediante un solo sensor y reestimación del sensor
+El caso más simple es
 
 ##Obtensión de la forma de la fuente asumiendo un ubicación conocido
 
@@ -86,7 +89,7 @@ Para obtener el vector perpendicular al plano de ruptura se puede hacer el cambi
 mediante una matriz ortogonal que produzca máximo desplazamiento en un eje
 
 ```matlab      
-[rotatesrc] = rotate(src); % fuente rotada
+[rotatesrc] = rotate(src);            % fuente rotada
 plotSrc(event.origin_time,rotatesrc); % mostrar cada una de las componentes con sus respectivos
                                       % porcentajes de señal en cada eje.
  ```
@@ -131,16 +134,13 @@ sean parecidos a la medicion de los sensores reales
 ```matlab
 clear('dataGsRec')
 clear('dataGsReal')
-index = [1];                         % conjunto de sensores que se quieren usar
+index = [4];                               % conjunto de sensores que se quieren usar
 [src, cutsrc, filtsrc, filtcutsrc, error] = sourceOneSensor(event, nSrc, dt, index); 
 [dataGsRec, dataGsReal, errorL2] = recon(event, index, src);
 
 ```
 
 - - -
-
-
-
 
 ## Reconstrucción de un sensor para una fuente con el error de estimación
 Ya con los eventos cargados y una fuente estimada, podemos reestimar cada 
