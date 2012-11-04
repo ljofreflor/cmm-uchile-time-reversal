@@ -19,7 +19,7 @@ R = event.gss(1).r0 - event.LocR;
 
 % ventana de tiempo
 timeDomain = time - event.origin_time;
-[G11,G12,G13,G22,G23,G33] = Event.scalarGreenKernel(R(1),R(2),R(3),timeDomain, event.alpha, event.beta, event.rho);
+[G11,G12,G13,G22,G23,G33] = scalarGreenKernel(R(1),R(2),R(3),timeDomain, event.alpha, event.beta, event.rho);
 
 % simetrias
 G21 = G12;
@@ -30,7 +30,7 @@ G32 = G23;
 recsns = zeros(size(src2));
 
 % diferencial de tiempo
-dt = time(2)-time(1);
+dt = time(2) - time(1);
 
 % reconstrucción mediante teorema de convolución
 % recontrucción mediante convolucion
@@ -51,6 +51,6 @@ timeConv = linspace(time(1),time(end), length(sourceX));
 
 % reconstrucci'on con la ventana de la fuente
 gsRec = interp1( timeConv', [sourceX; sourceY; sourceZ]', gss.timevector');
-gsReal = detrend(cumsum(gss.data));
+gsReal = gss.data;
 
 end

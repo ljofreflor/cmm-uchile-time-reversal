@@ -1,4 +1,4 @@
-function plotSrc(origin_time, src)
+function plotSrc(src, origin_time)
 
 Z = src(:,2:4);
 

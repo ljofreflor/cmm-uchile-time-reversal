@@ -12,11 +12,11 @@ rho = art.rho;
 
 % cambiar la fuente de este evento por una fuente imposible
 for ii = 1:art.count
-    art.gss(ii).data = datosArticiales(art.gss(ii), t0, r0, alpha, beta, rho);
+    art.gss(ii).data = datosArticiales(art, ii);
     art.gss(ii).IsAccelerometer = 0;
     art.gss(ii).IsSpeedometer = 0;    
 end
 
-[~, src] = datosArticiales(art.gss(ii), t0, r0, alpha, beta, rho);
+[~, src] = datosArticiales(art, ii);
 end
 

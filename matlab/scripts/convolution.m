@@ -9,5 +9,6 @@ res = zeros(size(ker));
 for t = 1:length(res)
     res(t) = sum(ker(t + 1 - (1:t)).*u(1:t));
 end 
+
 end
 
