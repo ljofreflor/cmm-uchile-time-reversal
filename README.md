@@ -39,14 +39,16 @@ los sensores que por medio de una inspección visual se note que son ruidosos ha
 encontrar un criterio automarizable, los sensores censurados estarán enumerados en 
 los comentarios. La linea verticar roja representa el tiempo estimado por codelco con el
 nombre de *origin_time*.
+
 ```matlab
 n = 1;                               % Número del evento que se desea estimar la forma de la fuente
 event = Events(n); 
-[src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, [1:2 4:event.count]); 
-plotSrc(event.origin_time, src);
-plotSrc(event.origin_time, rotate(filtsrc));
+[src, filtsrc] = source(event, nSrc, dt, [1:2 4:event.count]); 
+plotSrc(src,event.origin_time);
+plotSrc(rotate(src), event.origin_time);
 % el sensor_id = 25 genera una medición extra~na
 ```
+
 ![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/source1.png?raw=true)
 ![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/f.r.source1.png?raw=true)
 
