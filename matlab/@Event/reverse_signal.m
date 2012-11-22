@@ -1,4 +1,4 @@
-function [X, Y, Z, X_domain, Y_domain, Z_domain, T_domain] = reverse_signal( obj )
+function [X, Y, Z, X_domain, Y_domain, Z_domain, T_domain] = reverse_signal(obj)
 %REVERSE_SIGNAL Retorna la se~nal invertida por medio de time reversal, el
 %parametro que
 [obj.X_domain, obj.Y_domain, obj.Z_domain, obj.T_domain] = ndgrid(obj.x_axis,obj.y_axis,obj.z_axis,obj.t_axis);

@@ -12,27 +12,30 @@ M = max(Z(:));
 subplot(1,3,1);
 plot(src(:,1),Z(:,1))
 axis([min(src(:,1)) max(src(:,1)) min(Z(:)) max(Z(:))]);
-hold;
+hold on;
 plot([ origin_time origin_time ],[m M],'Color','r','LineWidth',1);
-hold;
-xlabel(n1/(n1+n2+n3));
+hold off;
+v1 = n1/(n1+n2+n3);
+xlabel(v1);
 
 
 subplot(1,3,2);
 plot(src(:,1),Z(:,2))
 axis([min(src(:,1)) max(src(:,1)) min(Z(:)) max(Z(:))]);
-hold;
+hold on;
 plot([ origin_time origin_time ],[m M],'Color','r','LineWidth',1);
-hold;
-xlabel(n2/(n1+n2+n3));
+hold off;
+v2 = n2/(n1+n2+n3);
+xlabel(v2);
 
 
 subplot(1,3,3);
 plot(src(:,1),Z(:,3))
 axis([min(src(:,1)) max(src(:,1)) min(Z(:)) max(Z(:))]);
-hold;
+hold on;
 plot([ origin_time origin_time ],[m M],'Color','r','LineWidth',1);
-hold;
-xlabel(n3/(n1+n2+n3));
+hold off;
+v3 = n3/(n1+n2+n3);
+xlabel(v3);
 
 end

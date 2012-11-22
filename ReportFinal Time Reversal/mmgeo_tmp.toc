@@ -1,0 +1,130 @@
+\select@language {spanish}
+\contentsline {chapter}{\numberline {1}Resumen Ejecutivo}{2}{chapter.1}
+\contentsline {chapter}{\numberline {2}L\'inea FEM (\textit {Duvan Henao}) }{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Resumen}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}El Modelo}{3}{section.2.2}
+\contentsline {section}{\numberline {2.3}Descripci\'on Software}{3}{section.2.3}
+\contentsline {section}{\numberline {2.4}Casos de estudio}{3}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Caso Pilar Norte}{3}{subsection.2.4.1}
+\contentsline {subsubsection}{Input}{3}{subsubsection*.2}
+\contentsline {subsubsection}{Output}{3}{subsubsection*.3}
+\contentsline {subsubsection}{Visualizaci\'on}{3}{subsubsection*.4}
+\contentsline {subsubsection}{An\'alisis de los resultados}{3}{subsubsection*.5}
+\contentsline {subsection}{\numberline {2.4.2}Caso Esemeralda}{3}{subsection.2.4.2}
+\contentsline {subsubsection}{Input}{3}{subsubsection*.6}
+\contentsline {subsubsection}{Output}{3}{subsubsection*.7}
+\contentsline {subsubsection}{Visualizaci\'on}{3}{subsubsection*.8}
+\contentsline {subsubsection}{An\'alisis de los resultados}{3}{subsubsection*.9}
+\contentsline {section}{\numberline {2.5}Resultados Generales}{3}{section.2.5}
+\contentsline {section}{\numberline {2.6}Extensiones futura}{3}{section.2.6}
+\contentsline {section}{\numberline {2.7}Manual de Uso}{3}{section.2.7}
+\contentsline {chapter}{\numberline {3}L\'inea FEM (Roger Bustamante)}{4}{chapter.3}
+\contentsline {section}{\numberline {3.1}Resumen}{4}{section.3.1}
+\contentsline {section}{\numberline {3.2}El Modelo}{4}{section.3.2}
+\contentsline {section}{\numberline {3.3}Descripci\'on Software}{4}{section.3.3}
+\contentsline {section}{\numberline {3.4}Casos de estudio}{4}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Caso Pilar Norte}{4}{subsection.3.4.1}
+\contentsline {subsubsection}{Input}{4}{subsubsection*.10}
+\contentsline {subsubsection}{Output}{4}{subsubsection*.11}
+\contentsline {subsubsection}{Visualizaci\'on}{4}{subsubsection*.12}
+\contentsline {subsubsection}{An\'alisis de los resultados}{4}{subsubsection*.13}
+\contentsline {subsection}{\numberline {3.4.2}Caso Esemeralda}{4}{subsection.3.4.2}
+\contentsline {subsubsection}{Input}{4}{subsubsection*.14}
+\contentsline {subsubsection}{Output}{4}{subsubsection*.15}
+\contentsline {subsubsection}{Visualizaci\'on}{4}{subsubsection*.16}
+\contentsline {subsubsection}{An\'alisis de los resultados}{4}{subsubsection*.17}
+\contentsline {section}{\numberline {3.5}Resultados Generales}{4}{section.3.5}
+\contentsline {section}{\numberline {3.6}Extensiones futura}{4}{section.3.6}
+\contentsline {section}{\numberline {3.7}Manual de Uso}{4}{section.3.7}
+\contentsline {chapter}{\numberline {4}Linea Time Reversal (Matias Courdurier. Leonardo Jofr\'e)}{5}{chapter.4}
+\contentsline {section}{\numberline {4.1}Resumen Estimaci\'on y Clasificaci\'on de Fuentes}{5}{section.4.1}
+\contentsline {section}{\numberline {4.2}Casos de Estudio}{5}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Estimaci\'on de las Fuentes}{5}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Input}{6}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Output}{12}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Test de Reconstrucci\'on de Fuentes}{27}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Clasificaci\'on de las Fuentes}{29}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Output}{29}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Conclusi\'on Estimaci\'on y Clasificaci\'on de Fuentes}{44}{section.4.4}
+\contentsline {section}{\numberline {4.5}Resumen Time-reversal}{44}{section.4.5}
+\contentsline {section}{\numberline {4.6}Casos de Estudio}{45}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Input}{45}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Output}{45}{subsection.4.6.2}
+\contentsline {section}{\numberline {4.7}Conclusiones en Time Reversal}{49}{section.4.7}
+\contentsline {section}{\numberline {4.8}Modelos}{49}{section.4.8}
+\contentsline {subsection}{\numberline {4.8.1}Ecuaci\'on de Ondas El\'astica}{49}{subsection.4.8.1}
+\contentsline {subsection}{\numberline {4.8.2}Modelo de Time-Reversal}{50}{subsection.4.8.2}
+\contentsline {subsection}{\numberline {4.8.3}Estimaci\'on de Fuentes Utilizando M\'{\i }nimos Cuadrados.}{51}{subsection.4.8.3}
+\contentsline {subsection}{\numberline {4.8.4}Clasificaci\'on de Fuentes Reconstruidas.}{52}{subsection.4.8.4}
+\contentsline {section}{\numberline {4.9}Descripci\'on del Software}{53}{section.4.9}
+\contentsline {subsection}{\numberline {4.9.1}Clases}{53}{subsection.4.9.1}
+\contentsline {subsubsection}{Event.m}{53}{subsubsection*.90}
+\contentsline {paragraph}{Ejemplo}{53}{paragraph*.91}
+\contentsline {subsubsection}{Geonsensor.m}{55}{subsubsection*.92}
+\contentsline {paragraph}{Ejemplo}{55}{paragraph*.93}
+\contentsline {subsection}{\numberline {4.9.2}Funciones principales}{57}{subsection.4.9.2}
+\contentsline {subsubsection}{Source.m}{57}{subsubsection*.94}
+\contentsline {paragraph}{Ejemplo}{57}{paragraph*.95}
+\contentsline {subsubsection}{Reverse\_signal}{57}{subsubsection*.96}
+\contentsline {subsection}{\numberline {4.9.3}Otras funciones}{57}{subsection.4.9.3}
+\contentsline {subsubsection}{scalarGreenKernel.m}{57}{subsubsection*.97}
+\contentsline {section}{\numberline {4.10}Manual de Uso}{58}{section.4.10}
+\contentsline {subsection}{\numberline {4.10.1}Importar desde los set de datos}{58}{subsection.4.10.1}
+\contentsline {subsection}{\numberline {4.10.2}Importar informaci\IeC {\'o}n a los objetos matlab}{58}{subsection.4.10.2}
+\contentsline {subsection}{\numberline {4.10.3}Construcci\IeC {\'o}n de las fuentes para cada evento }{58}{subsection.4.10.3}
+\contentsline {subsection}{\numberline {4.10.4}Rotar una se\IeC {\~n}al filtrada para conocer el tipo de fuente}{59}{subsection.4.10.4}
+\contentsline {chapter}{\numberline {5}Linea Sismica}{60}{chapter.5}
+\contentsline {section}{\numberline {5.1}Resumen}{60}{section.5.1}
+\contentsline {section}{\numberline {5.2}El Modelo}{60}{section.5.2}
+\contentsline {section}{\numberline {5.3}Descripci\'on Software}{60}{section.5.3}
+\contentsline {section}{\numberline {5.4}Casos de estudio}{60}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Caso Pilar Norte}{60}{subsection.5.4.1}
+\contentsline {subsubsection}{Input}{60}{subsubsection*.99}
+\contentsline {subsubsection}{Output}{60}{subsubsection*.100}
+\contentsline {subsubsection}{Visualizaci\'on}{60}{subsubsection*.101}
+\contentsline {subsubsection}{An\'alisis de los resultados}{60}{subsubsection*.102}
+\contentsline {subsection}{\numberline {5.4.2}Caso Esemeralda}{60}{subsection.5.4.2}
+\contentsline {subsubsection}{Input}{60}{subsubsection*.103}
+\contentsline {subsubsection}{Output}{60}{subsubsection*.104}
+\contentsline {subsubsection}{Visualizaci\'on}{60}{subsubsection*.105}
+\contentsline {subsubsection}{An\'alisis de los resultados}{60}{subsubsection*.106}
+\contentsline {section}{\numberline {5.5}Resultados Generales}{60}{section.5.5}
+\contentsline {section}{\numberline {5.6}Extensiones futura}{60}{section.5.6}
+\contentsline {section}{\numberline {5.7}Manual de Uso}{60}{section.5.7}
+\contentsline {chapter}{\numberline {6}Linea DEM }{61}{chapter.6}
+\contentsline {section}{\numberline {6.1}Resumen}{61}{section.6.1}
+\contentsline {section}{\numberline {6.2}El Modelo}{61}{section.6.2}
+\contentsline {section}{\numberline {6.3}Descripci\'on Software}{61}{section.6.3}
+\contentsline {section}{\numberline {6.4}Casos de estudio}{61}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Caso Pilar Norte}{61}{subsection.6.4.1}
+\contentsline {subsubsection}{Input}{61}{subsubsection*.107}
+\contentsline {subsubsection}{Output}{61}{subsubsection*.108}
+\contentsline {subsubsection}{Visualizaci\'on}{61}{subsubsection*.109}
+\contentsline {subsubsection}{An\'alisis de los resultados}{61}{subsubsection*.110}
+\contentsline {subsection}{\numberline {6.4.2}Caso Esemeralda}{61}{subsection.6.4.2}
+\contentsline {subsubsection}{Input}{61}{subsubsection*.111}
+\contentsline {subsubsection}{Output}{61}{subsubsection*.112}
+\contentsline {subsubsection}{Visualizaci\'on}{61}{subsubsection*.113}
+\contentsline {subsubsection}{An\'alisis de los resultados}{61}{subsubsection*.114}
+\contentsline {section}{\numberline {6.5}Resultados Generales}{61}{section.6.5}
+\contentsline {section}{\numberline {6.6}Extensiones futura}{61}{section.6.6}
+\contentsline {section}{\numberline {6.7}Manual de Uso}{61}{section.6.7}
+\contentsline {chapter}{\numberline {7}Linea Geom\'etrica (CME3D) }{62}{chapter.7}
+\contentsline {section}{\numberline {7.1}Resumen}{62}{section.7.1}
+\contentsline {section}{\numberline {7.2}El Modelo}{62}{section.7.2}
+\contentsline {section}{\numberline {7.3}Descripci\'on Software}{62}{section.7.3}
+\contentsline {section}{\numberline {7.4}Casos de estudio}{62}{section.7.4}
+\contentsline {subsection}{\numberline {7.4.1}Caso Pilar Norte}{62}{subsection.7.4.1}
+\contentsline {subsubsection}{Input}{62}{subsubsection*.115}
+\contentsline {subsubsection}{Output}{62}{subsubsection*.116}
+\contentsline {subsubsection}{Visualizaci\'on}{62}{subsubsection*.117}
+\contentsline {subsubsection}{An\'alisis de los resultados}{62}{subsubsection*.118}
+\contentsline {subsection}{\numberline {7.4.2}Caso Esemeralda}{62}{subsection.7.4.2}
+\contentsline {subsubsection}{Input}{62}{subsubsection*.119}
+\contentsline {subsubsection}{Output}{62}{subsubsection*.120}
+\contentsline {subsubsection}{Visualizaci\'on}{62}{subsubsection*.121}
+\contentsline {subsubsection}{An\'alisis de los resultados}{62}{subsubsection*.122}
+\contentsline {section}{\numberline {7.5}Resultados Generales}{62}{section.7.5}
+\contentsline {section}{\numberline {7.6}Extensiones futura}{62}{section.7.6}
+\contentsline {section}{\numberline {7.7}Manual de uso}{62}{section.7.7}
+\contentsline {chapter}{\numberline {8}Bibliograf\'{\i }a}{63}{chapter.8}

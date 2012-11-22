@@ -43,9 +43,12 @@ nombre de *origin_time*.
 ```matlab
 n = 1;                               % Número del evento que se desea estimar la forma de la fuente
 event = Events(n); 
-[src, filtsrc] = source(event, nSrc, dt, [1:2 4:event.count]); 
+event.gss(find([event.gss.sensor_id]==25)) = [];
+event.count = length(event.gss);
+[src, filtsrc, e] = source(event); 
 plotSrc(src,event.origin_time);
 plotSrc(rotate(src), event.origin_time);
+plotSrc(rotate(filtsrc), event.origin_time);
 % el sensor_id = 25 genera una medición extra~na
 ```
 
@@ -56,9 +59,9 @@ plotSrc(rotate(src), event.origin_time);
 ```matlab
 n = 2;
 event = Events(n);   
-[src, cutsrc, filtsrc, filtcutsrc, error] = source(event, nSrc, dt, [1 3:4 6:event.count]); 
-plotSrc(event.origin_time, src);
-plotSrc(event.origin_time, rotate(filtsrc));
+[src, filtsrc, e] = source(event, nSrc, dt, [1 3:4 6:event.count]); 
+plotSrc(src,event.origin_time);
+plotSrc(rotate(filtsrc),event.origin_time);
 ```
 
 ![Sin titulo](https://github.com/ljofre/cmm-uchile-time-reversal/blob/master/fig/source2.png?raw=true)

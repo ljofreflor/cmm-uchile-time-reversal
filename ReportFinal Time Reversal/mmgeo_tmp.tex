@@ -1,0 +1,125 @@
+\documentclass[letterpaper,11pt,openany,oneside]{report}	% informe estandar
+%\documentclass[letterpaper,12pt,openany,oneside,notitlepage]{report}	% sin portada
+
+\usepackage{dsfont}
+\usepackage[utf8x]{inputenc}							% codificacion español
+\usepackage[activeacute,spanish]{babel}								% lenguage español
+\usepackage{latexsym}											% simbolos
+\usepackage{amssymb}											% simbolos AMS
+\usepackage{float}												% objetos flotantes
+\usepackage[center,footnotesize]{caption}	% titulos de figuras y tablas[posicion,tamaño]
+\usepackage{graphicx}							% soporte figuras
+\usepackage{epstopdf}
+%\usepackage[pdftex]{graphicx}							% soporte figuras
+\usepackage[nottoc,numbib]{tocbibind}			% bibliografia en indice
+\usepackage{sectsty}											% soporte estilizar titulos
+\usepackage[small,compact]{titlesec}			% soporte cambiar tamaño titulos [tamaño letra, espaciamiento]
+%\usepackage{pdfpages}						% soporte anexar pdf externo con \includepdf{archivo.jpg}
+%\usepackage{savetrees}										% menos papel
+\usepackage{lscape}
+\usepackage{subfig}
+\usepackage[pdftex,colorlinks,bookmarksnumbered,bookmarksopen=true,plainpages=false,linkcolor=black,citecolor=red,urlcolor=blue]{hyperref}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{textcomp}
+\usepackage{mathtools}
+\usepackage{psfrag}
+\usepackage{amsfonts}
+\usepackage{bbm}
+
+% soporte enlaces, colores default: linkcolor=red, citecolor=green, urlcolor=magenta
+
+\newcommand{\be}{\begin{equation}}	% comenzar ecuacion con '\be'
+\newcommand{\ee}{\end{equation}}		% finalizar ecuacion con '\ee'
+\newcommand{\itemcheck}{\item[\checkmark]} 	%crear un tick para los items
+\newcommand{\graficocaption}[4]{
+\begin{figure}[htbp]
+\centering
+\includegraphics[height=#1]{#2}
+\caption{#3}
+\label{#4}
+\end{figure}
+}
+\newcommand{\graficocaptiont}[4]{
+\begin{figure}[htbp]
+\centering
+\includegraphics[height=#1, trim=#4, clip]{#2}
+\caption{#3}
+\end{figure}
+}
+
+\voffset -1.2in
+\oddsidemargin 0in
+\textheight 8.5in
+\textwidth 6.5in
+\linespread {1.3}
+
+\titleformat{\chapter}[display] % cambiamos el formato de los capitulos
+{\bfseries\Large} % por defecto se usaron caracteres de tamaño \Large en negrita
+{% contenido de la etiqueta
+ \titlerule % linea horizontal
+ %\filleft % texto alineado a la derecha
+ \filright % texto alineado a la izquierda
+ \large\chaptertitlename\ % "Capitulo" o "Apendice" en tamaño \normalsize en lugar de \Large
+ \large\thechapter} % numero de caputulo en tamaño \normalsize
+{0mm} % espacio minimo entre etiqueta y cuerpo
+%{\filleft} % texto del cuerpo alineado a la derecha
+{\filright\Large} % texto del cuerpo alineado a la izquierda
+[\vspace{0.5mm} \titlerule] % despues del cuerpo, dejar espacio vertical y trazar linea horizontal gruesa
+
+\captionsetup{labelfont=sf,textfont=sf,justification=justified,format=hang}
+
+
+
+%simbolos %%Matias Courdurier%%
+
+\newcommand{\R}{\mathbb{R}}		% Reales
+\newcommand{\N}{\mathbb{N}}		% Naturales
+\newcommand{\one}{\mathbbm{1}}		% Naturales
+
+
+\begin{document}
+
+\renewcommand{\contentsname}{\'Indice}	% cambia nombre: 'Indice general' -> 'Indice'
+\renewcommand{\tablename}{Tabla}			% cambia nombre: 'Cuadro' -> 'Tabla'
+\allsectionsfont{\sffamily}	% titulos en sans-serif, necesita paquete sectsty
+\sffamily										% texto en sans-serif
+
+
+%%%%%%%%%%%%%%%%%%%%%%%PORTADA%%%%%%%%%%%%%%%%%%%%%%%
+\include{./portada/laportada}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\maketitle
+\tableofcontents
+\thispagestyle{empty}	% correr primera pagina despues del indice, funciona solo si el indice tiene una pagina
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%Documento%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% Raul Manasevich
+\include{ejecutivo}
+
+%% Duvan Henao
+\include{./linea_fem1/capitulo}
+
+%% Roger Bustamante
+\include{./linea_fem2/capitulo}
+
+%% Matias Courdurier
+\include{./linea_timerev/capitulo}
+
+%% Javier Ruiz
+\include{./linea_sismica/capitulo}
+
+%% Cludia Vallejos
+\include{./linea_dem/capitulo}
+
+%% Mario Fernandez
+\include{./linea_cme3d/capitulo}
+
+
+\include{./referencias/refproyecto}
+
+\end{document}

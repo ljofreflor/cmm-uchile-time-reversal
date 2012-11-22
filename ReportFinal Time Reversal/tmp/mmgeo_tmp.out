@@ -1,0 +1,71 @@
+\BOOKMARK [0][]{chapter.1}{1 Resumen Ejecutivo}{}
+\BOOKMARK [0][]{chapter.2}{2 L\355nea FEM \(Duvan Henao\) }{}
+\BOOKMARK [1][]{section.2.1}{2.1 Resumen}{chapter.2}
+\BOOKMARK [1][]{section.2.2}{2.2 El Modelo}{chapter.2}
+\BOOKMARK [1][]{section.2.3}{2.3 Descripci\363n Software}{chapter.2}
+\BOOKMARK [1][]{section.2.4}{2.4 Casos de estudio}{chapter.2}
+\BOOKMARK [2][]{subsection.2.4.1}{2.4.1 Caso Pilar Norte}{section.2.4}
+\BOOKMARK [2][]{subsection.2.4.2}{2.4.2 Caso Esemeralda}{section.2.4}
+\BOOKMARK [1][]{section.2.5}{2.5 Resultados Generales}{chapter.2}
+\BOOKMARK [1][]{section.2.6}{2.6 Extensiones futura}{chapter.2}
+\BOOKMARK [1][]{section.2.7}{2.7 Manual de Uso}{chapter.2}
+\BOOKMARK [0][]{chapter.3}{3 L\355nea FEM \(Roger Bustamante\)}{}
+\BOOKMARK [1][]{section.3.1}{3.1 Resumen}{chapter.3}
+\BOOKMARK [1][]{section.3.2}{3.2 El Modelo}{chapter.3}
+\BOOKMARK [1][]{section.3.3}{3.3 Descripci\363n Software}{chapter.3}
+\BOOKMARK [1][]{section.3.4}{3.4 Casos de estudio}{chapter.3}
+\BOOKMARK [2][]{subsection.3.4.1}{3.4.1 Caso Pilar Norte}{section.3.4}
+\BOOKMARK [2][]{subsection.3.4.2}{3.4.2 Caso Esemeralda}{section.3.4}
+\BOOKMARK [1][]{section.3.5}{3.5 Resultados Generales}{chapter.3}
+\BOOKMARK [1][]{section.3.6}{3.6 Extensiones futura}{chapter.3}
+\BOOKMARK [1][]{section.3.7}{3.7 Manual de Uso}{chapter.3}
+\BOOKMARK [0][]{chapter.4}{4 Linea Time Reverse}{}
+\BOOKMARK [1][]{section.4.1}{4.1 Resumen}{chapter.4}
+\BOOKMARK [1][]{section.4.2}{4.2 El Modelo}{chapter.4}
+\BOOKMARK [1][]{section.4.3}{4.3 Descripci\363n Software}{chapter.4}
+\BOOKMARK [2][]{subsection.4.3.1}{4.3.1 Clases}{section.4.3}
+\BOOKMARK [2][]{subsection.4.3.2}{4.3.2 Funciones principales}{section.4.3}
+\BOOKMARK [1][]{section.4.4}{4.4 Casos de estudio}{chapter.4}
+\BOOKMARK [2][]{subsection.4.4.1}{4.4.1 Caso Pilar Norte}{section.4.4}
+\BOOKMARK [2][]{subsection.4.4.2}{4.4.2 Caso Esemeralda}{section.4.4}
+\BOOKMARK [1][]{section.4.5}{4.5 Resultados Generales}{chapter.4}
+\BOOKMARK [2][]{subsection.4.5.1}{4.5.1 Reconstrucci\363n de fuentes sismicas mediante m\355nimos cuadrados}{section.4.5}
+\BOOKMARK [2][]{subsection.4.5.2}{4.5.2 Clasificaci\363n de fuentes}{section.4.5}
+\BOOKMARK [2][]{subsection.4.5.3}{4.5.3 Inversi\363n en el tiempo de las se\361ales de los sismografos}{section.4.5}
+\BOOKMARK [1][]{section.4.6}{4.6 Extensiones futura}{chapter.4}
+\BOOKMARK [1][]{section.4.7}{4.7 Manual de Uso}{chapter.4}
+\BOOKMARK [2][]{subsection.4.7.1}{4.7.1 Importar desde los set de datos}{section.4.7}
+\BOOKMARK [2][]{subsection.4.7.2}{4.7.2 Importar informaci\363n a los objetos matlab}{section.4.7}
+\BOOKMARK [2][]{subsection.4.7.3}{4.7.3 Construcci\363n de las fuentes para cada evento}{section.4.7}
+\BOOKMARK [2][]{subsection.4.7.4}{4.7.4 Inversion en el tiempo de los geosensores}{section.4.7}
+\BOOKMARK [0][]{chapter.5}{5 Linea Sismica}{}
+\BOOKMARK [1][]{section.5.1}{5.1 Resumen}{chapter.5}
+\BOOKMARK [1][]{section.5.2}{5.2 El Modelo}{chapter.5}
+\BOOKMARK [1][]{section.5.3}{5.3 Descripci\363n Software}{chapter.5}
+\BOOKMARK [1][]{section.5.4}{5.4 Casos de estudio}{chapter.5}
+\BOOKMARK [2][]{subsection.5.4.1}{5.4.1 Caso Pilar Norte}{section.5.4}
+\BOOKMARK [2][]{subsection.5.4.2}{5.4.2 Caso Esemeralda}{section.5.4}
+\BOOKMARK [1][]{section.5.5}{5.5 Resultados Generales}{chapter.5}
+\BOOKMARK [1][]{section.5.6}{5.6 Extensiones futura}{chapter.5}
+\BOOKMARK [1][]{section.5.7}{5.7 Manual de Uso}{chapter.5}
+\BOOKMARK [0][]{chapter.6}{6 Linea DEM }{}
+\BOOKMARK [1][]{section.6.1}{6.1 Resumen}{chapter.6}
+\BOOKMARK [1][]{section.6.2}{6.2 El Modelo}{chapter.6}
+\BOOKMARK [1][]{section.6.3}{6.3 Descripci\363n Software}{chapter.6}
+\BOOKMARK [1][]{section.6.4}{6.4 Casos de estudio}{chapter.6}
+\BOOKMARK [2][]{subsection.6.4.1}{6.4.1 Caso Pilar Norte}{section.6.4}
+\BOOKMARK [2][]{subsection.6.4.2}{6.4.2 Caso Esemeralda}{section.6.4}
+\BOOKMARK [1][]{section.6.5}{6.5 Resultados Generales}{chapter.6}
+\BOOKMARK [1][]{section.6.6}{6.6 Extensiones futura}{chapter.6}
+\BOOKMARK [1][]{section.6.7}{6.7 Manual de Uso}{chapter.6}
+\BOOKMARK [0][]{chapter.7}{7 Linea Geom\351trica \(CME3D\) }{}
+\BOOKMARK [1][]{section.7.1}{7.1 Resumen}{chapter.7}
+\BOOKMARK [1][]{section.7.2}{7.2 El Modelo}{chapter.7}
+\BOOKMARK [1][]{section.7.3}{7.3 Descripci\363n Software}{chapter.7}
+\BOOKMARK [1][]{section.7.4}{7.4 Casos de estudio}{chapter.7}
+\BOOKMARK [2][]{subsection.7.4.1}{7.4.1 Caso Pilar Norte}{section.7.4}
+\BOOKMARK [2][]{subsection.7.4.2}{7.4.2 Caso Esemeralda}{section.7.4}
+\BOOKMARK [1][]{section.7.5}{7.5 Resultados Generales}{chapter.7}
+\BOOKMARK [1][]{section.7.6}{7.6 Extensiones futura}{chapter.7}
+\BOOKMARK [1][]{section.7.7}{7.7 Manual de uso}{chapter.7}
+\BOOKMARK [0][]{chapter.8}{8 Bibliograf\355a}{}

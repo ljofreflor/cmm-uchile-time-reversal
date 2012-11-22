@@ -33,6 +33,8 @@ hsr = obj.hardware_sampling_rate;
 % vector de tiempo, tiene que retrodecer el buffer dado por "tp"
 obj.timevector = obj.t_time + ((0:(obj.L-1))-tp)/hsr;
 obj.firsttime = obj.timevector(1);
+obj.lasttime = obj.timevector(end);
+[~ ,obj.cuttime] = find_tail_limit(obj, 0.8);
 
 % norma del vector de desplazamiento medici`on a medici'on
 normDespla     = sqrt(obj.r_x.^2 + obj.r_y.^2 + obj.r_z.^2);

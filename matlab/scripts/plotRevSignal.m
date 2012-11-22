@@ -1,15 +1,15 @@
 
-modulo = 10000000000000*sqrt(X.^2+Y.^2+Z.^2);
+function plotRevSignal(X,Y,Z)
+R = sqrt(X.^2+Y.^2+Z.^2);
 
-MAXIMO = max(max(max((modulo(:,:,2,:)))))/3;
-for i = 1:length(mu(1).t_axis)
-    fprintf('%d\n',i);
-    z = (modulo(:,:,6,i));    
+MAX = max(max(max((R(:,:,2,:)))))/3;
+for ii = 1:size(R,4)
+    fprintf('%d\n',ii);
+    z = (R(:,:,5,ii));    
     imagesc(z);
-    caxis([0 MAXIMO]);
-    %pcolor(z);
-    %view(90,90);
+    caxis([0 MAX]);
     colorbar;
-    pause;
+    print('-painters', '-dpng','-r600', ['tr3',num2str(ii),'.png']);
+end
 end
 

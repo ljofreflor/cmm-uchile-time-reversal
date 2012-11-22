@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Thu Nov 15 15:11:24 CLST 2012
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=mmgeo_tmp.tex
+outputFile=mmgeo_tmp.pdf
+langSpell=es
+markDer=true
+srcDir=

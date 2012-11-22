@@ -3,7 +3,9 @@ classdef Geosensor
     % un veloc'imetro o un acelerometro.
     
     properties
+        cuttime
         firsttime
+        lasttime
         resampleErrorOnNorm
         resampleSize
         timeresamplevector
@@ -79,6 +81,7 @@ classdef Geosensor
                 obj.IsAccelerometer = 1;
             end
         end
+        % indice de corte de la sen~al
         tail = findTailLimit(obj, S, tail_per, p);
     end
 end

@@ -8,7 +8,7 @@ cd data' sets'
 cd 
 root_path = pwd;
 cd ..
-cd matlab
+cd matlab;
 
 %-------------------------------------------------------------------------%
 % list_dir es la lista de los nombres de todos los archivos y directorios
