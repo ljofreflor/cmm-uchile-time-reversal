@@ -1,4 +1,4 @@
-function [src, filtsrc, error, A, U, indices, alphas] = source(event, nSrc, L, por)
+function [src, filtsrc, error, U] = source(event, nSrc, L, por)
 
 % gssIndex: indice de los sensores para reconstruir la fuente
 % nSrc: numero de elementos de la fuente
@@ -53,6 +53,7 @@ end
 
 for kk = 1:event.count
     
+    % frecuencia de muestreo
     hsr = event.gss(kk).hardware_sampling_rate;
     
     % la relacion dt*hsr > 1
@@ -63,9 +64,10 @@ for kk = 1:event.count
     timeDomain = event.gss(kk).timevector - srcTime(1);
     
     [G11,G12,G13,G22,G23,G33] = scalarGreenKernel(R(1),R(2),R(3),timeDomain,event.alpha, event.beta, event.rho);
-    
+
     % integraci'on de la funcion de Green
     dtdomain = timeDomain(2) - timeDomain(1);
+
     F11 = cumsum(G11)*dtdomain;
     F12 = cumsum(G12)*dtdomain;
     F13 = cumsum(G13)*dtdomain;
@@ -146,7 +148,11 @@ end
 
 
 % resolucion del sistema
-alphas = U*pinv(A);
+if cond(A*A') == Inf
+    alphas = (U*A')*pinv(A*A');
+else
+    alphas = (U*A')/(A*A');
+end
 
 % fuente estimada
 src = zeros([size(alphas,2)/3 4]);

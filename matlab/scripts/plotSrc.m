@@ -1,5 +1,6 @@
-function plotSrc(src, origin_time)
-
+function plotSrc(event)
+src = event.src;
+origin_time = event.origin_time;
 Z = src(:,2:4);
 
 n1 = norm(Z(:,1),2);
@@ -18,7 +19,6 @@ hold off;
 v1 = n1/(n1+n2+n3);
 xlabel(v1);
 
-
 subplot(1,3,2);
 plot(src(:,1),Z(:,2))
 axis([min(src(:,1)) max(src(:,1)) min(Z(:)) max(Z(:))]);
@@ -27,7 +27,6 @@ plot([ origin_time origin_time ],[m M],'Color','r','LineWidth',1);
 hold off;
 v2 = n2/(n1+n2+n3);
 xlabel(v2);
-
 
 subplot(1,3,3);
 plot(src(:,1),Z(:,3))
