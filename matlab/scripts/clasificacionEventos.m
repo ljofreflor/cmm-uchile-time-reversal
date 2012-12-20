@@ -21,12 +21,11 @@ plot(data(IDX ==2,1),data(IDX ==2,2),'b.')
 plot(data(IDX ==3,1),data(IDX ==3,2),'g.')
 hold off
 
-% funcion de densidad
-plot(sort(vr1),(1:length(vr1))/length(vr1))
 
-% funcion de distribucion
-quantil = sort(vr1);
-prob = (1:length(vr1))/length(vr1);
 
-% interpolacion
-q = interp1(sort(vr2)',(1:length(vr2))/length(vr2),linspace(0,max(vr2),length(vr2)))
+plot(sort([Ev.vr1]),(1:length([Ev.vr1]))/length([Ev.vr1]))
+
+d = smooth(sort([Ev.vr1]))'
+x = diff(d)
+y = diff((1:length([Ev.vr1]))/length([Ev.vr1]))
+plot(d(1:(end-1)), y./x);

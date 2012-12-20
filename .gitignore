@@ -3,3 +3,10 @@
 *.pyc
 *.pydevproject
 * FOLDER
+*.aux
+*.toc
+*.aux
+*.log
+*.out
+*.synctex.gz
+
