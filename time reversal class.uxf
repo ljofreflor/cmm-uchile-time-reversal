@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="11.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>520</x>
+      <y>70</y>
+      <w>100</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Event
+--
+-nombre
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Note</type>
+    <coordinates>
+      <x>320</x>
+      <y>80</y>
+      <w>160</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Informacion sobre
+ un evento sismico</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
