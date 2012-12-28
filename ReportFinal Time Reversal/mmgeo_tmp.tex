@@ -1,9 +1,10 @@
 \documentclass[letterpaper,11pt,openany,oneside]{report}	% informe estandar
-%\documentclass[letterpaper,12pt,openany,oneside,notitlepage]{report}	% sin portada
-
+%\documentclass[letterpaper,12pt,openany,oneside,notitlepage]{report}	 % sin
+% portada
+\usepackage{lmodern}% http://ctan.org/pkg/lm
 \usepackage{dsfont}
 \usepackage[utf8x]{inputenc}							% codificacion español
-\usepackage[activeacute,spanish]{babel}								% lenguage español
+\usepackage[activeacute,spanish]{babel}					% lenguage español
 \usepackage{latexsym}											% simbolos
 \usepackage{amssymb}											% simbolos AMS
 \usepackage{float}												% objetos flotantes
@@ -18,8 +19,11 @@
 %\usepackage{savetrees}										% menos papel
 \usepackage{lscape}
 \usepackage{subfig}
-\usepackage[pdftex,colorlinks,bookmarksnumbered,bookmarksopen=true,plainpages=false,linkcolor=black,citecolor=red,urlcolor=blue]{hyperref}
+
+% http://en.wikibooks.org/wiki/LaTeX/Hyperlinks
 \usepackage{amsmath}
+\usepackage[pdftex,colorlinks,bookmarksnumbered,bookmarksopen=true,plainpages=false,linkcolor=black,citecolor=red,urlcolor=blue]{hyperref}
+
 \usepackage{amstext}
 \usepackage{textcomp}
 \usepackage{mathtools}

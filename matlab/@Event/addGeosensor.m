@@ -6,7 +6,7 @@ gs.validAll = ~(all(data(:,1) == 0) || all(data(:,2) == 0) || all(data(:,3) == 0
 %agregar ese flag a la lista del evento
 gs.L = length(data(:,1));
 % obtener el resampleo del desplazamiento
-gs = gs.variableResample(obj.error);
+gs = variableResample(gs, obj.error);
 obj.gss = [obj.gss gs];
 
 %actualizar el dominio para que abarque a todos los

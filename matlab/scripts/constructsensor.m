@@ -1,8 +1,7 @@
-function [gsRec, gsReal] = constructsensor(event, index, src)
+function [gsRec] = constructsensor(event, index, src)
 
 % sensor que se quiere reconstruir dado en indice dado
 gs = event.gss(index);
-gsReal = gs.data;
 
 % taman~o de remuestreo de sincronizacion
 L = 20000;

@@ -15,7 +15,7 @@ range = find(valid == 1);
 for ii = range
     fprintf('%d sensores de %d totales validos de %d ...\n', ii, ...
         sum(valid),length(range));
-    [X_TEMP,Y_TEMP,Z_TEMP] = obj.field(ii);
+    [X_TEMP,Y_TEMP,Z_TEMP] = field(obj, ii);
     X = X + X_TEMP;
     Y = Y + Y_TEMP;
     Z = Z + Z_TEMP;

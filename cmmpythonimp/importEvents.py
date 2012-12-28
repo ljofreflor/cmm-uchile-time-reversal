@@ -2,7 +2,6 @@
 importar un archivo con un evento sismico a un objeto del tipo event
 '''
 import re
-import datetime
 import evento
 import numpy
 
