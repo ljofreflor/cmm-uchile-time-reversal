@@ -231,13 +231,22 @@ geofono en un evento en específico.
 
 \paragraph{Seleccionar la parte de la señal de un sismograma}
 \begin{itemize}
+  \item Archivo: scripts/windowsErase.m
+  \item Comando: ev =  windowsErase(ev)
   \item Descripción: El costo de encontrar una fuente sismica depende de la
   cantidad de mediciones implicadas en cada uno de los sismogramas, como una
   parte del sismograma son solo mediciones ruidosas con se puede omitir para
   hacer una estimación más rápida en terminos computacionales.
+  \item input ev: Objeto del tipo evento con todas las mediciones de campo de
+  desplazamiento.
+  \item output ev: Objeto del tipo event en el cual la ventana temporal de las
+  mediciones es el tiempo de llegada de la onda $p$ y la onda $s$
 \end{itemize}
+
 \paragraph{Clusterización de los eventos sismicos}
  \begin{itemize}
+   \item Archivo: scripts/clustering.m
+   \item comando: 
    \item Descripción: Visualización de la agrupación de las mediciones por medio
    de un algoritmos de agrupación de k-medias dada una norma $l_2$ de las
    componentes filtradas y rotadas de la fuente sísmica (fuerza).
@@ -247,13 +256,16 @@ geofono en un evento en específico.
 La importación de los datos desde los archivos dados se hacen mediante el
 program en python readFile.py que fué programado y testeado en un ambiente
 linux, dado que las rutas a carpetas son distintas entre los distintos sistemas
-operativos como lo son windows y otros basados en UNIX se hace necesaria la
-advertencia.
-El uso del programa propiamente tal está descrito en dos archivos archivos
-matlab, en el primero sampletimereversal.m se describe como invertir la señal en
-el tiempo. En el segundo archivo sampleRecSource.m se describen los pasos para
-la reconstruccion de una fuente sismica a partir de la información de los
-geofonos dados por Codelco.
+operativos como lo son los de Microsoft y otros basados en UNIX se hace
+necesaria la advertencia.
+El uso del programa propiamente tal está descrito en dos archivos matlab (*.m)
+con un ejemplo explicativo correspondiente para cada uno. En el primero
+sampletimereversal.m se describe como invertir la señal en el tiempo. En el 
+segundo archivo sampleRecSource.m se describen los pasos para la reconstruccion 
+de una fuente sismica a partir de la información de los geofonos dados por 
+Codelco.
+Para probar la validez del producto existen un conjunto de pruebas de software
+en la carpeta test.
 
 
 
