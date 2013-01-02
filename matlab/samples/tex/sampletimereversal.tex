@@ -1,0 +1,64 @@
+
+% This LaTeX was auto-generated from an M-file by MATLAB.
+% To make changes, update the M-file and republish this document.
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{color}
+
+\sloppy
+\definecolor{lightgray}{gray}{0.5}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+    
+    
+\subsection*{Contents}
+
+\begin{itemize}
+\setlength{\itemsep}{-1ex}
+   \item ejemplo de inversion en el tiempo de los campos de desplazamiento de los
+   \item dominio de la inversión
+   \item visualizacion de la inversion de los datos
+\end{itemize}
+
+
+\subsection*{ejemplo de inversion en el tiempo de los campos de desplazamiento de los}
+
+\begin{par}
+La función import events transforma los archivos generados con script en python a una lista de objetos del tipo Event
+\end{par} \vspace{1em}
+\begin{verbatim}
+%ev = importEvents();
+\end{verbatim}
+\begin{par}
+con los archivos ya importados en la variable ev = $ev_1,\cdot, ev_n$ donde $$n$\$ es la cantidad de geosensores. tomamos un evento sísmico de los n existentes, podemos considerar por ejemplo, el evento $3$
+\end{par} \vspace{1em}
+\begin{verbatim}
+index = 3;
+% se invierte el campo de desplazamiento remuestreado.
+%[X, Y, Z, X_domain, Y_domain, Z_domain, T_domain] = reverse_signal(ev(index));
+\end{verbatim}
+
+
+\subsection*{dominio de la inversión}
+
+\begin{par}
+el dominio definido por X\_domain, Y\_domain, Z\_domain, T\_domain son de $$60 \times 60 \times 10 \times 50$\$ cuya presición de la discretización está dada por $$dx =  14.7890$\$, $$dy =  13.9790$\$, $$dz = 34.7967$\$ metros y dependen de la cobertura de los geófonos, este cubo es en realidad el cubo de volumen mínimo que contiene a todos los geófonos.
+\end{par} \vspace{1em}
+
+
+\subsection*{visualizacion de la inversion de los datos}
+
+\begin{par}
+con las mediciones ya obtenidas de la unversión de las señales se considera la visualización de la norma del campo vectorial para visualización.
+\end{par} \vspace{1em}
+\begin{verbatim}
+N = sqrt(X.^2 + Y.^2 + Z.^2);
+\end{verbatim}
+
+
+
+\end{document}
+    

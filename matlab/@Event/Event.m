@@ -86,7 +86,6 @@ classdef Event
         end
         
         obj       = addGeosensor(obj, gs, vel)
-        [X,Y,Z]   = field(obj,i)
         obj       = set_domain(obj,nx,ny,nz,nt)
         obj       = set_domain_center(obj,n);
         obj = set_domain_unit(obj , nx , ny , nz , nt)

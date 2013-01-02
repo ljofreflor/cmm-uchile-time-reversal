@@ -11,7 +11,6 @@ function [src, filtsrc, error, U] = source(event, nSrc, L, por)
 % la ventana srcTime esta centrada en el tiempo estimado en los set de
 % datos.
 
-event = windowsErase(event);
 srcTime = event.origin_time + linspace(-por*L,(1-por)*L,nSrc);
 dt = srcTime(2) - srcTime(1);
 
