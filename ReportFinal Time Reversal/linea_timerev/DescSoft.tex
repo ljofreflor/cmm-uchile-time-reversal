@@ -243,15 +243,6 @@ geofono en un evento en específico.
   mediciones es el tiempo de llegada de la onda $p$ y la onda $s$
 \end{itemize}
 
-\paragraph{Clusterización de los eventos sismicos}
- \begin{itemize}
-   \item Archivo: scripts/clustering.m
-   \item comando: 
-   \item Descripción: Visualización de la agrupación de las mediciones por medio
-   de un algoritmos de agrupación de k-medias dada una norma $l_2$ de las
-   componentes filtradas y rotadas de la fuente sísmica (fuerza).
- \end{itemize}
-
 \subsection{Manual de uso}
 La importación de los datos desde los archivos dados se hacen mediante el
 program en python readFile.py que fué programado y testeado en un ambiente
@@ -263,7 +254,7 @@ con un ejemplo explicativo correspondiente para cada uno. En el primero
 sampletimereversal.m se describe como invertir la señal en el tiempo. En el 
 segundo archivo sampleRecSource.m se describen los pasos para la reconstruccion 
 de una fuente sismica a partir de la información de los geofonos dados por 
-Codelco.
+Codelco y luego la clasificación.
 Para probar la validez del producto existen un conjunto de pruebas de software
 en la carpeta test.
 

@@ -5,7 +5,6 @@ function events = importEvents()
 % por la aplicación en python.
 cd ..
 cd data' sets'
-cd 
 root_path = pwd;
 cd ..
 cd matlab;
