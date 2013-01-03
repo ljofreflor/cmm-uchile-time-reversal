@@ -10,7 +10,7 @@ import re
 # Ruta en la que se encuentran los archivos entregados por codelco, estos a su
 # vez se encuentran en una posicion relativa a la posicion de este archivo en
 # la path
-pathFolder = os.path.dirname((os.path.abspath(__file__))) + '/../data sets'
+pathFolder = os.path.dirname((os.path.abspath(__file__))) + '/../../data sets'
 
 # lista de archivos y directorios
 files = os.listdir(pathFolder)

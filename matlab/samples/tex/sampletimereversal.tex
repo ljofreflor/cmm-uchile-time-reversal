@@ -30,22 +30,28 @@
 La función import events transforma los archivos generados con script en python a una lista de objetos del tipo Event
 \end{par} \vspace{1em}
 \begin{verbatim}
-%ev = importEvents();
+ev = importEvents();
 \end{verbatim}
 \begin{par}
-con los archivos ya importados en la variable ev = $ev_1,\cdot, ev_n$ donde $$n$\$ es la cantidad de geosensores. tomamos un evento sísmico de los n existentes, podemos considerar por ejemplo, el evento $3$
+con los archivos ya importados en la variable ev = $ev_1,\cdot, ev_n$ donde $n$ es la cantidad de geosensores. tomamos un evento sísmico de los n existentes, podemos considerar por ejemplo, el evento $3$
 \end{par} \vspace{1em}
 \begin{verbatim}
 index = 3;
 % se invierte el campo de desplazamiento remuestreado.
-%[X, Y, Z, X_domain, Y_domain, Z_domain, T_domain] = reverse_signal(ev(index));
+[X, Y, Z, X_dom, Y_dom, Z_dom, T_dom] = reverse_signal(ev(index));
 \end{verbatim}
 
+        \color{lightgray} \begin{verbatim}Index exceeds matrix dimensions.
+
+Error in sampletimereversal (line 12)
+[X, Y, Z, X_dom, Y_dom, Z_dom, T_dom] = reverse_signal(ev(index));
+\end{verbatim} \color{black}
+    
 
 \subsection*{dominio de la inversión}
 
 \begin{par}
-el dominio definido por X\_domain, Y\_domain, Z\_domain, T\_domain son de $$60 \times 60 \times 10 \times 50$\$ cuya presición de la discretización está dada por $$dx =  14.7890$\$, $$dy =  13.9790$\$, $$dz = 34.7967$\$ metros y dependen de la cobertura de los geófonos, este cubo es en realidad el cubo de volumen mínimo que contiene a todos los geófonos.
+el dominio definido por X\_domain, Y\_domain, Z\_domain, T\_domain son de $60 \times 60 \times 10 \times 50$ cuya presición de la discretización está dada por $dx =  14.7890$, $dy =  13.9790$, $dz = 34.7967$ metros y dependen de la cobertura de los geófonos, este cubo es en realidad el cubo de volumen mínimo que contiene a todos los geófonos.
 \end{par} \vspace{1em}
 
 

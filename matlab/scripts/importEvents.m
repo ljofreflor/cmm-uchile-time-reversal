@@ -1,5 +1,6 @@
 function events = importEvents()
 % CARGAR GEOSENSORES DESDE LA RUTA GENERADA POR PYTHON
+
 % ------------------------------------------------------------------------%
 % root_path es la ruta en donde se encuentran todos los eventos generados
 % por la aplicación en python.
