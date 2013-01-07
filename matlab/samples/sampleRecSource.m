@@ -1,12 +1,16 @@
+
 %% Importar los archivos desde python por medio de la consola matlab
 % 
-
+% Bajo un cliente unix y teniendo python instalaso solo es necesario correr
+% la siguiente linea para hacer el tratamiento de los archivos y
+% convertirlos en las carpetas a las cuales requiere acceder el programa en
+% matlab
 %unix('python ../python/src/readFile.py'); % descomentar si tiene eventos
 %nuevos en la carpeta "data sets"
 
 %% importar los eventos
 % importar todos los eventos que están en la carpeta "data sets"
-ev = importevents();
+ev = importEvents();
 
 %% evento de ejemplo
 % El evento que se empleará será el tercero de la lista por que describe
@@ -45,7 +49,7 @@ plotFiltRotSrc(exev);
 % de tal manera
 for iter = 1:length(ev)
     [ev(iter).src, ev(iter).filtsrc, ev(iter).error] = source(ev(iter), 100, 0.5,0.09);
-    [ev(iter).vr1, ev(iter).vr2, ev(iter).vr3] = eventCoeficients(rotate(ev(iter).filtsrc));
+    [ev(iter).vr1, ev(iter).vr2, ev(iter).vr3] = EventCoeficients(rotate(ev(iter).filtsrc));
 end
 
 
@@ -54,21 +58,18 @@ end
 % clasificar los eventos nos permite deducir propiedades del lugar en donde
 % ocurre el evento. Se buscará una clasificación natural de los sismos
 
-vr1 = [ev.vr1]';
-vr2 = [ev.vr2]';
-vr3 = [ev.vr3]';
+X = [ev.vr1]';
 
-X = vr1;
-
+%% Clusterizar
 data = [X zeros(size(X))];
 IDX = kmeans(data,3);
 
-% GRAFICO
+%% Graficar los grupos 
+
 plot(data(IDX ==1,1),data(IDX ==1,2),'r.')
 hold on
 plot(data(IDX ==2,1),data(IDX ==2,2),'b.')
 plot(data(IDX ==3,1),data(IDX ==3,2),'k.')
-ksdensity(X,'npoints',1000,'support',[min(X) max(X)])
+ksdensity(X,'npoints',1000,'support',[0 1/3])
 hold off
 
-scatter3([ev.vr1],[ev.vr2],[ev.vr3]);

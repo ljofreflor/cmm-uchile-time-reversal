@@ -35,8 +35,8 @@ index = 3;
 N = sqrt(X.^2 + Y.^2 + Z.^2);
 
 for i = 1:length(ev(index).t_axis)
+    %% gráfico
      imagesc(N(:,:,floor(end/2),i));  
-     pause;
 end
 
 
