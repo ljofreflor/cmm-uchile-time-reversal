@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>sampleRecSource</title><meta name="generator" content="MATLAB 8.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2013-01-03"><meta name="DC.source" content="sampleRecSource.m"><style type="text/css">
+      --><title>sampleRecSource</title><meta name="generator" content="MATLAB 8.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2013-01-08"><meta name="DC.source" content="sampleRecSource.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -65,7 +65,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Importar los archivos desde python por medio de la consola matlab</a></li><li><a href="#2">importar los eventos</a></li><li><a href="#3">evento de ejemplo</a></li><li><a href="#4">construccion de la fuente</a></li><li><a href="#5">visualizaci&oacute;n de la fuente sismica con la totalidad de geofonos</a></li><li><a href="#6">visualizaci&oacute;n de la fuente filtrada con la totalidad de geofonos</a></li><li><a href="#7">selecci&oacute;n de los ge&oacute;fonos</a></li><li><a href="#8">visualizaci&oacute;n de la fuente sismica</a></li><li><a href="#9">visualizaci&oacute;n de la fuente filtrada</a></li><li><a href="#10">visualizacion de la fuente filtrada y rotada</a></li><li><a href="#11">rotaci&oacute;n y clasificaci&oacute;n de los sismos</a></li></ul></div><h2>Importar los archivos desde python por medio de la consola matlab<a name="1"></a></h2><pre class="codeinput"><span class="comment">%unix('python ../python/src/readFile.py'); % descomentar si tiene eventos</span>
+  </style></head><body><div class="content"><h1></h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Importar los archivos desde python por medio de la consola matlab</a></li><li><a href="#2">importar los eventos</a></li><li><a href="#3">evento de ejemplo</a></li><li><a href="#4">construccion de la fuente</a></li><li><a href="#5">visualizaci&oacute;n de la fuente sismica con la totalidad de geofonos</a></li><li><a href="#6">visualizaci&oacute;n de la fuente filtrada con la totalidad de geofonos</a></li><li><a href="#7">selecci&oacute;n de los ge&oacute;fonos</a></li><li><a href="#8">visualizaci&oacute;n de la fuente sismica</a></li><li><a href="#9">visualizaci&oacute;n de la fuente filtrada</a></li><li><a href="#10">visualizacion de la fuente filtrada y rotada</a></li><li><a href="#11">rotaci&oacute;n y clasificaci&oacute;n de los sismos</a></li><li><a href="#12">clasificaci&oacute;n de eventos</a></li><li><a href="#13">Clusterizar</a></li><li><a href="#14">Graficar los grupos</a></li></ul></div><h2>Importar los archivos desde python por medio de la consola matlab<a name="1"></a></h2><p>Bajo un cliente unix y teniendo python instalaso solo es necesario correr la siguiente linea para hacer el tratamiento de los archivos y convertirlos en las carpetas a las cuales requiere acceder el programa en matlab</p><pre class="codeinput"><span class="comment">%unix('python ../python/src/readFile.py'); % descomentar si tiene eventos</span>
 <span class="comment">%nuevos en la carpeta "data sets"</span>
 </pre><h2>importar los eventos<a name="2"></a></h2><p>importar todos los eventos que est&aacute;n en la carpeta "data sets"</p><pre class="codeinput">ev = importEvents();
 </pre><h2>evento de ejemplo<a name="3"></a></h2><p>El evento que se emplear&aacute; ser&aacute; el tercero de la lista por que describe</p><pre class="codeinput">exev = ev(3);
@@ -77,11 +77,29 @@ exev.gss(i) = []; <span class="comment">% con esto eliminamos el sensor con el a
 </pre><h2>visualizaci&oacute;n de la fuente sismica<a name="8"></a></h2><pre class="codeinput">plotSrc(exev);
 </pre><img vspace="5" hspace="5" src="sampleRecSource_03.png" alt=""> <h2>visualizaci&oacute;n de la fuente filtrada<a name="9"></a></h2><pre class="codeinput">plotFiltSrc(exev);
 </pre><img vspace="5" hspace="5" src="sampleRecSource_04.png" alt=""> <h2>visualizacion de la fuente filtrada y rotada<a name="10"></a></h2><pre class="codeinput">plotFiltRotSrc(exev);
-</pre><img vspace="5" hspace="5" src="sampleRecSource_05.png" alt=""> <h2>rotaci&oacute;n y clasificaci&oacute;n de los sismos<a name="11"></a></h2><p>Ya conociendo la forma de encontrar la forma de la fuente en un punto, se busca encontrar todas la cantidad se se&ntilde;al en cada eje de la se&ntilde;al rotada de tal manera</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2012b</a><br></p></div><!--
+close <span class="string">all</span>; <span class="comment">% cerrar grafico anterior</span>
+</pre><h2>rotaci&oacute;n y clasificaci&oacute;n de los sismos<a name="11"></a></h2><p>Ya conociendo la forma de encontrar la forma de la fuente en un punto, se busca encontrar todas la cantidad se se&ntilde;al en cada eje de la se&ntilde;al rotada de tal manera</p><pre class="codeinput"><span class="keyword">for</span> iter = 1:length(ev)
+    [ev(iter).src, ev(iter).filtsrc, ev(iter).error] = source(ev(iter), 100, 0.5,0.09);
+    [ev(iter).vr1, ev(iter).vr2, ev(iter).vr3] = EventCoeficients(rotate(ev(iter).filtsrc));
+<span class="keyword">end</span>
+</pre><h2>clasificaci&oacute;n de eventos<a name="12"></a></h2><p>clasificar los eventos nos permite deducir propiedades del lugar en donde ocurre el evento. Se buscar&aacute; una clasificaci&oacute;n natural de los sismos</p><pre class="codeinput">X = [ev.vr1]';
+</pre><h2>Clusterizar<a name="13"></a></h2><pre class="codeinput">data = [X zeros(size(X))];
+IDX = kmeans(data,3);
+</pre><h2>Graficar los grupos<a name="14"></a></h2><pre class="codeinput">plot(data(IDX ==1,1),data(IDX ==1,2),<span class="string">'r.'</span>)
+hold <span class="string">on</span>
+plot(data(IDX ==2,1),data(IDX ==2,2),<span class="string">'b.'</span>)
+plot(data(IDX ==3,1),data(IDX ==3,2),<span class="string">'k.'</span>)
+ksdensity(X,<span class="string">'npoints'</span>,1000,<span class="string">'support'</span>,[0 1/3])
+hold <span class="string">off</span>
+</pre><img vspace="5" hspace="5" src="sampleRecSource_05.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2012b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
+
 %% Importar los archivos desde python por medio de la consola matlab
 % 
-
+% Bajo un cliente unix y teniendo python instalaso solo es necesario correr
+% la siguiente linea para hacer el tratamiento de los archivos y
+% convertirlos en las carpetas a las cuales requiere acceder el programa en
+% matlab
 %unix('python ../python/src/readFile.py'); % descomentar si tiene eventos
 %nuevos en la carpeta "data sets"
 
@@ -119,10 +137,38 @@ plotSrc(exev);
 plotFiltSrc(exev);
 %% visualizacion de la fuente filtrada y rotada
 plotFiltRotSrc(exev);
-
+close all; % cerrar grafico anterior
 %% rotación y clasificación de los sismos
 % Ya conociendo la forma de encontrar la forma de la fuente en un punto, se
 % busca encontrar todas la cantidad se señal en cada eje de la señal rotada
 % de tal manera
+for iter = 1:length(ev)
+    [ev(iter).src, ev(iter).filtsrc, ev(iter).error] = source(ev(iter), 100, 0.5,0.09);
+    [ev(iter).vr1, ev(iter).vr2, ev(iter).vr3] = EventCoeficients(rotate(ev(iter).filtsrc));
+end
+
+
+
+%% clasificación de eventos 
+% clasificar los eventos nos permite deducir propiedades del lugar en donde
+% ocurre el evento. Se buscará una clasificación natural de los sismos
+
+X = [ev.vr1]';
+
+%% Clusterizar
+data = [X zeros(size(X))];
+IDX = kmeans(data,3);
+
+%% Graficar los grupos 
+
+
+plot(data(IDX ==1,1),data(IDX ==1,2),'r.')
+hold on
+plot(data(IDX ==2,1),data(IDX ==2,2),'b.')
+plot(data(IDX ==3,1),data(IDX ==3,2),'k.')
+ksdensity(X,'npoints',1000,'support',[0 1/3])
+hold off
+
+
 ##### SOURCE END #####
 --></body></html>

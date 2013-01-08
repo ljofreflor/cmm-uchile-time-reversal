@@ -42,7 +42,7 @@ plotSrc(exev);
 plotFiltSrc(exev);
 %% visualizacion de la fuente filtrada y rotada
 plotFiltRotSrc(exev);
-
+close all; % cerrar grafico anterior
 %% rotación y clasificación de los sismos
 % Ya conociendo la forma de encontrar la forma de la fuente en un punto, se
 % busca encontrar todas la cantidad se señal en cada eje de la señal rotada
@@ -66,10 +66,11 @@ IDX = kmeans(data,3);
 
 %% Graficar los grupos 
 
+
 plot(data(IDX ==1,1),data(IDX ==1,2),'r.')
 hold on
 plot(data(IDX ==2,1),data(IDX ==2,2),'b.')
 plot(data(IDX ==3,1),data(IDX ==3,2),'k.')
-ksdensity(X,'npoints',1000,'support',[0 1/3])
+ksdensity(X, 'npoints', 1000, 'support',[0 1/3])
 hold off
 
